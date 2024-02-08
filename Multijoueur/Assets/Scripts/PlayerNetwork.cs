@@ -14,6 +14,7 @@ public class PlayerNetwork : NetworkBehaviour
     [SerializeField] private GameObject spawnGameObject;
     [SerializeField] private Animator animator;
     [SerializeField] private Transform pivotTransform;
+    [SerializeField] private ParticleSystem walkParticles;
     
     private GameObject spawnGameObjectInstance;
     private Vector3 direction;
@@ -61,14 +62,25 @@ public class PlayerNetwork : NetworkBehaviour
         //Set Directions
         var currentInputValues = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
         direction = Vector3.Lerp(direction, currentInputValues, 10f * Time.deltaTime);
-        if (direction.magnitude > 0.2f) directionNotReset = direction;
+
+        if (direction.magnitude > 0.2f)
+        {
+            directionNotReset = direction;
+            //walkParticles.Play();
+        }
+        else
+        {
+            //walkParticles.Stop();
+        }
+        
+        Debug.Log(walkParticles.isPlaying);
         
         //Move the player by modifying position
         transform.position += Helper.IsoConvertVector(direction, CameraManager.Singleton.cameraYRotation)
                               * (moveSpeed * Time.deltaTime);
         
         //Set the animator plays the animations from bool parameter
-        animator.SetBool("Move", direction.magnitude > 0.25f);
+        animator.SetBool("Move", direction.magnitude > 0.5f);
     }
 
     void RotateFromInput()
