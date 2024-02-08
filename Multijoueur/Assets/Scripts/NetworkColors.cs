@@ -6,6 +6,6 @@ using UnityEngine;
 public class NetworkColors : MonoBehaviour
 {
     public static NetworkColors Singleton;
-    public Color[] playerColors;
+    public Texture2D[] playerTextures;
     private void Awake() => Singleton = this;
 }
