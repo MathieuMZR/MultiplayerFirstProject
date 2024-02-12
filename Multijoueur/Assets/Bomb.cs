@@ -1,14 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Unity.Netcode;
 using Unity.Netcode.Components;
+using UnityEditor;
 using UnityEngine;
 
 public class Bomb : NetworkBehaviour
 {
+    public NetworkVariable<int> ownerID = new NetworkVariable<int>(0, NetworkVariableReadPermission.Everyone,
+        NetworkVariableWritePermission.Server);
+    
     [SerializeField] private float timeBeforeExplose;
     [SerializeField] private GameObject explodeVFX;
+
+    private int ID;
     
     private NetworkAnimator _animator;
     private float currentSpeed = 1f;
@@ -17,6 +24,22 @@ public class Bomb : NetworkBehaviour
     {
         _animator = GetComponent<NetworkAnimator>();
         StartCoroutine(nameof(Explode));
+
+        StartCoroutine(nameof(LateNetworkSpawn));
+    }
+
+    IEnumerator LateNetworkSpawn()
+    {
+        yield return new WaitForSeconds(0.01f);
+        ColorBomb(ownerID.Value);
+    }
+
+    public void ColorBomb(int i)
+    {
+        foreach (MeshRenderer r in GetComponentsInChildren<MeshRenderer>())
+        {
+            r.material.SetColor("_Color", NetworkColors.Singleton.playerColors[i]);
+        }
     }
 
     // Update is called once per frame
@@ -33,19 +56,33 @@ public class Bomb : NetworkBehaviour
         yield return new WaitForSeconds(timeBeforeExplose);
         SpawnExplodeVFX_ServerRpc(transform.position);
         
-        GetComponent<NetworkObject>().Despawn();
+        if (IsHost)
+        {
+            SpawnExplodeVFX(transform.position);
+            GetComponent<NetworkObject>().Despawn();
+        }
+        else
+        {
+            SpawnExplodeVFX_ServerRpc(transform.position);
+        }
     }
     
     [ServerRpc]
     void SpawnExplodeVFX_ServerRpc(Vector3 pos)
     {
-        SpawnExplodeVFX_ClientRpc(pos);
+        SpawnExplodeVFX(pos); // Spawn on the network
     }
     
-    [ClientRpc]
-    void SpawnExplodeVFX_ClientRpc(Vector3 pos)
+    void SpawnExplodeVFX(Vector3 pos)
     {
         GameObject eVFX = Instantiate(explodeVFX, pos, Quaternion.identity);
-        eVFX.GetComponent<NetworkObject>().Spawn(true); // Spawn on the network
+        eVFX.GetComponent<NetworkObject>().Spawn(true); 
+    }
+
+    private void OnDrawGizmos()
+    {
+        #if UNITY_EDITOR
+        Handles.Label(transform.position, OwnerClientId.ToString());
+        #endif
     }
 }

@@ -6,23 +6,25 @@ using Unity.Mathematics;
 using Unity.Netcode;
 using Unity.Netcode.Components;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class PlayerNetwork : NetworkBehaviour
 {
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float linearDragMultiplier;
+    [SerializeField] private float linearDragDecelerator;
     [SerializeField] private TextMeshPro displayInfo;
    
     [SerializeField] private Animator animator;
     [SerializeField] private Transform pivotTransform;
 
-    [SerializeField] private GameObject spawn;
-    private GameObject spawnGameObjectInstance;
+    [SerializeField] private GameObject bomb;
+    private GameObject lastBombSpawned;
     
     private Vector3 direction;
     private Vector3 directionNotReset;
-    
-    //private NetworkVariable<int> ID = new (0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    private Rigidbody rb;
 
     public override void OnNetworkSpawn()
     {
@@ -30,37 +32,50 @@ public class PlayerNetwork : NetworkBehaviour
         if (IsOwner)
         {
             CameraManager.Singleton.InitTarget(transform);
+            rb = GetComponent<Rigidbody>();
         }
         
         SetupColorsFromID(OwnerClientId);
-
         InitDisplayInfos();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"ID : {OwnerClientId}");
-        
         if (IsOwner)
         {
             //Debug.Log(OwnerClientId);
             RotateFromInput();
-            Move();
             HandleAnimations();
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                if (IsHost)
+                {
+                    SpawnPlayerSphere(OwnerClientId,
+                        transform.position + new Vector3(0, 0.5f, 0));
+                }
+                else
+                {
+                    SpawnPlayerSphere_ServerRpc(OwnerClientId,
+                        transform.position + new Vector3(0, 0.5f, 0));
+                }
+            }
         }
         else
         {
             
         }
-        
-        if (Input.GetKeyDown(KeyCode.F) && IsLocalPlayer)
+    }
+
+    private void FixedUpdate()
+    {
+        if (IsOwner)
         {
-            SpawnPlayerSphere_ServerRpc(GetComponent<NetworkObject>().OwnerClientId, 
-                transform.position + new Vector3(0,0.5f,0));
+            Move();
         }
     }
-    
+
     #region Movements
 
     /// <summary>
@@ -73,10 +88,10 @@ public class PlayerNetwork : NetworkBehaviour
         direction = Vector3.Lerp(direction, currentInputValues, 10f * Time.deltaTime);
         if (direction != Vector3.zero) directionNotReset = direction;
         
-        
-        //Move the player by modifying position
-        transform.position += Helper.IsoConvertVector(direction, CameraManager.Singleton.cam.transform.eulerAngles.y)
-                              * (moveSpeed * Time.deltaTime);
+        rb.AddForce(Helper.IsoConvertVector(direction, CameraManager.Singleton.cam.transform.eulerAngles.y)
+                    * (moveSpeed * Time.deltaTime), ForceMode.Impulse);
+
+        rb.drag = linearDragMultiplier * linearDragDecelerator;
     }
 
     /// <summary>
@@ -96,11 +111,14 @@ public class PlayerNetwork : NetworkBehaviour
     #endregion
 
     #region Name Tag / Infos
-    
+
     /// <summary>
     /// Initialize NameTag infos at the spawn of the player
     /// </summary>
-    private void InitDisplayInfos() => displayInfo.text = $"Player {OwnerClientId}";
+    private void InitDisplayInfos()
+    {
+        displayInfo.text = $"Player {OwnerClientId}";
+    }
 
     #endregion
 
@@ -117,24 +135,20 @@ public class PlayerNetwork : NetworkBehaviour
     
     #endregion
 
-    [ServerRpc(RequireOwnership = false)]
+    [ServerRpc]
     void SpawnPlayerSphere_ServerRpc(ulong connectionId, Vector3 pos)
     {
-        SpawnPlayerSphere_ClientRpc(connectionId, pos);
+        SpawnPlayerSphere(connectionId, pos);
     }
     
-    [ClientRpc]
-    void SpawnPlayerSphere_ClientRpc(ulong connectionId, Vector3 pos)
+    void SpawnPlayerSphere(ulong connectionId, Vector3 pos)
     {
-        Color playerColor = NetworkColors.Singleton.playerColors[Convert.ToInt32(connectionId)];
+        //int playerIDint = Convert.ToInt32(connectionId);
 
-        GameObject sphere = Instantiate(spawn, pos, Quaternion.identity);
-        sphere.GetComponent<NetworkObject>().Spawn(true); // Spawn on the network
+        lastBombSpawned = Instantiate(bomb, pos, Quaternion.identity);
         
-        foreach (MeshRenderer r in sphere.GetComponentsInChildren<MeshRenderer>())
-        {
-            r.material.SetColor("_Color", playerColor);
-        }
+        lastBombSpawned.GetComponent<NetworkObject>().Spawn(true);
+        lastBombSpawned.GetComponent<Bomb>().ownerID.Value = Convert.ToInt32(OwnerClientId);
     }
 
     void SetupColorsFromID(ulong clientID)
