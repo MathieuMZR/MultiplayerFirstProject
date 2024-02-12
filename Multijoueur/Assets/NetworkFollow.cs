@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class NetworkFollow : NetworkBehaviour
 {
-    [SerializeField] private float followSpeed = 50;
     private Transform target;
 
     public void Init(Transform t) => target = t;
@@ -13,6 +12,6 @@ public class NetworkFollow : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * followSpeed);
+        transform.position = target.position;
     }
 }

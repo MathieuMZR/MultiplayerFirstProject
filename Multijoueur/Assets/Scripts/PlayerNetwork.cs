@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.Mathematics;
 using Unity.Netcode;
@@ -15,15 +16,25 @@ public class PlayerNetwork : NetworkBehaviour
     [SerializeField] private float linearDragMultiplier;
     [SerializeField] private float linearDragDecelerator;
     [SerializeField] private TextMeshPro displayInfo;
+    [SerializeField] private TextMeshPro nearestObject;
    
     [SerializeField] private Animator animator;
     [SerializeField] private Transform pivotTransform;
-
+    
+    [SerializeField] private GameObject mesh;
+    [SerializeField] private Transform morphPropParent;
+    
     [SerializeField] private GameObject bomb;
+    
+    public List<Prop> allAvailableProps = new List<Prop>();
+    public Prop nearestProp;
+    
+    private GameObject morphPropGameObject;
     private GameObject lastBombSpawned;
     
     private Vector3 direction;
     private Vector3 directionNotReset;
+    
     private Rigidbody rb;
 
     public override void OnNetworkSpawn()
@@ -31,12 +42,19 @@ public class PlayerNetwork : NetworkBehaviour
         //target only the owner
         if (IsOwner)
         {
+            GetComponents();
+            
             CameraManager.Singleton.InitTarget(transform);
-            rb = GetComponent<Rigidbody>();
+            PlayerList.Singleton.AddPlayerToList(this);
         }
         
         SetupColorsFromID(OwnerClientId);
         InitDisplayInfos();
+    }
+
+    void GetComponents()
+    {
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -47,25 +65,22 @@ public class PlayerNetwork : NetworkBehaviour
             //Debug.Log(OwnerClientId);
             RotateFromInput();
             HandleAnimations();
+            HandleBombInputs();
 
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.R) && nearestProp is not null)
             {
                 if (IsHost)
                 {
-                    SpawnPlayerSphere(OwnerClientId,
-                        transform.position + new Vector3(0, 0.5f, 0));
+                    SpawnProp();
                 }
                 else
                 {
-                    SpawnPlayerSphere_ServerRpc(OwnerClientId,
-                        transform.position + new Vector3(0, 0.5f, 0));
+                    SpawnProp_ServerRpc();
                 }
             }
         }
-        else
-        {
-            
-        }
+        
+        nearestObject.text = nearestProp is not null ? nearestProp.name : "None";
     }
 
     private void FixedUpdate()
@@ -74,6 +89,32 @@ public class PlayerNetwork : NetworkBehaviour
         {
             Move();
         }
+    }
+
+    public void GetNearestProp()
+    {
+        if (allAvailableProps.Count > 0)
+            nearestProp = allAvailableProps.OrderBy(obj => Vector3.Distance(obj.transform.position, transform.position))
+                .ToList()[0];
+        else
+            nearestProp = null;
+    }
+    
+    [ServerRpc]
+    void SpawnProp_ServerRpc()
+    {
+        SpawnProp();
+    }
+    
+    void SpawnProp()
+    {
+        morphPropGameObject = Instantiate(nearestProp.gameObject);
+        morphPropGameObject.GetComponent<NetworkObject>().Spawn();
+        
+        mesh.SetActive(false);
+        
+        //morphPropGameObject.GetComponent<SphereCollider>().enabled = false;
+        //morphPropGameObject.AddComponent<NetworkFollow>().Init(transform);
     }
 
     #region Movements
@@ -134,22 +175,41 @@ public class PlayerNetwork : NetworkBehaviour
     }
     
     #endregion
+    
+    #region Bombs
+    
+    void HandleBombInputs()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (IsHost)
+            {
+                SpawnBomb(transform.position + new Vector3(0, 0.5f, 0));
+            }
+            else
+            {
+                SpawnBomb_ServerRpc(transform.position + new Vector3(0, 0.5f, 0));
+            }
+        }
+    }
 
     [ServerRpc]
-    void SpawnPlayerSphere_ServerRpc(ulong connectionId, Vector3 pos)
+    void SpawnBomb_ServerRpc(Vector3 pos)
     {
-        SpawnPlayerSphere(connectionId, pos);
+        SpawnBomb(pos);
     }
     
-    void SpawnPlayerSphere(ulong connectionId, Vector3 pos)
+    void SpawnBomb(Vector3 pos)
     {
-        //int playerIDint = Convert.ToInt32(connectionId);
-
         lastBombSpawned = Instantiate(bomb, pos, Quaternion.identity);
         
         lastBombSpawned.GetComponent<NetworkObject>().Spawn(true);
         lastBombSpawned.GetComponent<Bomb>().ownerID.Value = Convert.ToInt32(OwnerClientId);
     }
+
+    #endregion
+    
+    #region Visuals
 
     void SetupColorsFromID(ulong clientID)
     {
@@ -158,4 +218,6 @@ public class PlayerNetwork : NetworkBehaviour
             r.material.SetColor("_Color", NetworkColors.Singleton.playerColors[clientID]);
         }
     }
+    
+    #endregion
 }
