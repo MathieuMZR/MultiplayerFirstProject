@@ -6,6 +6,7 @@ using TMPro;
 using Unity.Mathematics;
 using Unity.Netcode;
 using Unity.Netcode.Components;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -26,15 +27,14 @@ public class PlayerNetwork : NetworkBehaviour
     
     [SerializeField] private GameObject bomb;
     
-    public List<Prop> allAvailableProps = new List<Prop>();
-    public Prop nearestProp;
+    public List<GameObject> allAvailableProps = new List<GameObject>();
+    public NetworkVariable<GameObject> nearestProp = new NetworkVariable<GameObject>(null, 
+        NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
     
     private GameObject morphPropGameObject;
     private GameObject lastBombSpawned;
-    
     private Vector3 direction;
     private Vector3 directionNotReset;
-    
     private Rigidbody rb;
 
     public override void OnNetworkSpawn()
@@ -45,7 +45,6 @@ public class PlayerNetwork : NetworkBehaviour
             GetComponents();
             
             CameraManager.Singleton.InitTarget(transform);
-            PlayerList.Singleton.AddPlayerToList(this);
         }
         
         SetupColorsFromID(OwnerClientId);
@@ -80,7 +79,7 @@ public class PlayerNetwork : NetworkBehaviour
             }
         }
         
-        nearestObject.text = nearestProp is not null ? nearestProp.name : "None";
+        nearestObject.text = nearestProp is not null ? nearestProp.Value.name : "None";
     }
 
     private void FixedUpdate()
@@ -94,11 +93,49 @@ public class PlayerNetwork : NetworkBehaviour
     public void GetNearestProp()
     {
         if (allAvailableProps.Count > 0)
-            nearestProp = allAvailableProps.OrderBy(obj => Vector3.Distance(obj.transform.position, transform.position))
+            nearestProp.Value = allAvailableProps.OrderBy(obj => Vector3.Distance(obj.transform.position, transform.position))
                 .ToList()[0];
         else
             nearestProp = null;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Prop>())
+        {
+            AddProp(other);
+        }
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<Prop>())
+        {
+            RemoveProp(other);
+        }
+    }
+
+    void AddProp(Collider other)
+    {
+        var prop = other.gameObject;
+        if (!allAvailableProps.Contains(prop))
+        {
+            allAvailableProps.Add(prop);
+            GetNearestProp();
+        }
+    }
+
+    void RemoveProp(Collider other)
+    {
+        var prop = other.gameObject;
+        if (allAvailableProps.Contains(prop))
+        {
+            allAvailableProps.Remove(prop);
+            GetNearestProp();
+        }
+    }
+
+    #region PropsSpawn
     
     [ServerRpc]
     void SpawnProp_ServerRpc()
@@ -108,14 +145,16 @@ public class PlayerNetwork : NetworkBehaviour
     
     void SpawnProp()
     {
-        morphPropGameObject = Instantiate(nearestProp.gameObject);
+        morphPropGameObject = Instantiate(nearestProp.Value.gameObject);
         morphPropGameObject.GetComponent<NetworkObject>().Spawn();
         
         mesh.SetActive(false);
         
-        //morphPropGameObject.GetComponent<SphereCollider>().enabled = false;
-        //morphPropGameObject.AddComponent<NetworkFollow>().Init(transform);
+        morphPropGameObject.GetComponent<SphereCollider>().enabled = false;
+        morphPropGameObject.AddComponent<NetworkFollow>().Init(transform);
     }
+    
+    #endregion
 
     #region Movements
 
