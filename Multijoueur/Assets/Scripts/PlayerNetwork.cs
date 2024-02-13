@@ -27,8 +27,8 @@ public class PlayerNetwork : NetworkBehaviour
     
     [SerializeField] private GameObject bomb;
     
-    public List<GameObject> allAvailableProps = new List<GameObject>();
-    public NetworkVariable<GameObject> nearestProp = new NetworkVariable<GameObject>(null, 
+    public List<Prop> allAvailableProps = new List<Prop>();
+    public NetworkVariable<Prop> nearestProp = new NetworkVariable<Prop>(null, 
         NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
     
     private GameObject morphPropGameObject;
@@ -77,9 +77,18 @@ public class PlayerNetwork : NetworkBehaviour
                     SpawnProp_ServerRpc();
                 }
             }
+            else if(Input.GetKeyDown(KeyCode.R) && morphPropGameObject is not null)
+            {
+                if (IsHost)
+                {
+                    DeleteProp();
+                }
+                else
+                {
+                    DeleteProp_ServerRpc();
+                }
+            }
         }
-        
-        nearestObject.text = nearestProp is not null ? nearestProp.Value.name : "None";
     }
 
     private void FixedUpdate()
@@ -87,14 +96,24 @@ public class PlayerNetwork : NetworkBehaviour
         if (IsOwner)
         {
             Move();
+            CustomGravity();
         }
     }
 
     public void GetNearestProp()
     {
         if (allAvailableProps.Count > 0)
-            nearestProp.Value = allAvailableProps.OrderBy(obj => Vector3.Distance(obj.transform.position, transform.position))
-                .ToList()[0];
+        {
+            var firstIndex = allAvailableProps
+                .OrderBy(obj => Vector3.Distance(obj.transform.position, transform.position)).ToList()[0];
+
+            if (firstIndex && nearestProp.Value)
+            {
+                Debug.Log(firstIndex);
+                nearestProp.Value = firstIndex;
+                nearestObject.text = nearestProp.Value.name;
+            }
+        }
         else
             nearestProp = null;
     }
@@ -103,7 +122,7 @@ public class PlayerNetwork : NetworkBehaviour
     {
         if (other.GetComponent<Prop>())
         {
-            AddProp(other);
+            AddProp(other.GetComponent<Prop>());
         }
     }
     
@@ -111,26 +130,24 @@ public class PlayerNetwork : NetworkBehaviour
     {
         if (other.GetComponent<Prop>())
         {
-            RemoveProp(other);
+            RemoveProp(other.GetComponent<Prop>());
         }
     }
 
-    void AddProp(Collider other)
+    void AddProp(Prop networkObject)
     {
-        var prop = other.gameObject;
-        if (!allAvailableProps.Contains(prop))
+        if (!allAvailableProps.Contains(networkObject))
         {
-            allAvailableProps.Add(prop);
+            allAvailableProps.Add(networkObject);
             GetNearestProp();
         }
     }
 
-    void RemoveProp(Collider other)
+    void RemoveProp(Prop networkObject)
     {
-        var prop = other.gameObject;
-        if (allAvailableProps.Contains(prop))
+        if (allAvailableProps.Contains(networkObject) && allAvailableProps.Count > 0)
         {
-            allAvailableProps.Remove(prop);
+            allAvailableProps.Remove(networkObject);
             GetNearestProp();
         }
     }
@@ -152,6 +169,20 @@ public class PlayerNetwork : NetworkBehaviour
         
         morphPropGameObject.GetComponent<SphereCollider>().enabled = false;
         morphPropGameObject.AddComponent<NetworkFollow>().Init(transform);
+    }
+
+    [ServerRpc]
+    void DeleteProp_ServerRpc()
+    {
+        DeleteProp();
+    }
+    
+    void DeleteProp()
+    {
+        morphPropGameObject.GetComponent<NetworkObject>().Despawn();
+        morphPropGameObject = null;
+        
+        mesh.SetActive(true);
     }
     
     #endregion
@@ -186,6 +217,11 @@ public class PlayerNetwork : NetworkBehaviour
 
         pivotTransform.localRotation = Quaternion.Slerp(pivotTransform.localRotation, toRotation,
             25 * Time.deltaTime);
+    }
+
+    void CustomGravity()
+    {
+        rb.AddForce(Vector3.down * 20f, ForceMode.Force);
     }
     
     #endregion

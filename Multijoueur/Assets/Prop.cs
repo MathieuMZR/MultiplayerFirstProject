@@ -7,8 +7,10 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(NetworkObject))]
 
-[GenerateSerializationForGenericParameter(0)]
-public class Prop : NetworkBehaviour
+public class Prop : NetworkBehaviour, INetworkSerializable
 {
-    
+    public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
+    {
+        
+    }
 }
