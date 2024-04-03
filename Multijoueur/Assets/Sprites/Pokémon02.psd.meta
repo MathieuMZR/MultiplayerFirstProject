@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 10c4fbf8e8098d24fbf971c66b0e09ec
+guid: 6b23d196958d1024cb52ff594b0ff638
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,127 +110,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: S_Pkmn001_0
+      name: "Pok\xE9mon02_0"
       rect:
         serializedVersion: 2
-        x: 13
-        y: 563
-        width: 513
-        height: 479
+        x: 42
+        y: 19
+        width: 907
+        height: 983
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eeabce6c901a1734ca6e873df668308f
-      internalID: -1921441188
+      spriteID: cacdb67963ba395438f3f18f6052fffe
+      internalID: -295150325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: S_Pkmn001_1
+      name: "Pok\xE9mon02_1"
       rect:
         serializedVersion: 2
-        x: 560
-        y: 564
-        width: 687
-        height: 485
+        x: 1051
+        y: 355
+        width: 861
+        height: 568
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93adad78a464ef1478ded69b6f26d6cc
-      internalID: -1576070430
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: S_Pkmn001_2
-      rect:
-        serializedVersion: 2
-        x: 1281
-        y: 566
-        width: 687
-        height: 483
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4927d96d3dfb62345ac3b6258a3cf654
-      internalID: 881138014
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: S_Pkmn001_3
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 43
-        width: 513
-        height: 479
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 33be3ebf689a420459e6ec0146c56fb2
-      internalID: 474401996
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: S_Pkmn001_4
-      rect:
-        serializedVersion: 2
-        x: 559
-        y: 44
-        width: 687
-        height: 485
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7a416d014af9d341b38b06d312ff907
-      internalID: -2020885333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: S_Pkmn001_5
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 46
-        width: 687
-        height: 483
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6b9eaa2cbe30ea147a6fc8c441a91bbb
-      internalID: -196053142
+      spriteID: e03be46d50c2c0c4fb77ed14e353212d
+      internalID: 1706593590
       vertices: []
       indices: 
       edges: []
@@ -238,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: f445665e1207bd2438219f14cfc6d765
     internalID: 0
     vertices: []
     indices: 
@@ -246,12 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      S_Pkmn001_0: -1921441188
-      S_Pkmn001_1: -1576070430
-      S_Pkmn001_2: 881138014
-      S_Pkmn001_3: 474401996
-      S_Pkmn001_4: -2020885333
-      S_Pkmn001_5: -196053142
+      "Pok\xE9mon02_0": -295150325
+      "Pok\xE9mon02_1": 1706593590
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
