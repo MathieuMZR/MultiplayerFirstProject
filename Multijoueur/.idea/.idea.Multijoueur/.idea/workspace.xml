@@ -12,12 +12,14 @@
       <change beforePath="$PROJECT_DIR$/Assets/EmoteWheel.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/M_Grass01.mat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/M_Grass01.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/M_Character.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/M_Character.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/N_PlayerController.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/N_PlayerController.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/N_PlayerEmotes.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/N_PlayerEmotes.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/N_PlayerNameTag.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/N_PlayerNameTag.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/P_Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/P_Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/S_Pkmn001.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/S_Pkmn001.png.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
