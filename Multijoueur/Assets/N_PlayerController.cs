@@ -59,7 +59,7 @@ public class N_PlayerController : NetworkBehaviour
     private void SetupDirection()
     {
         direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        if (direction.magnitude > 0.1f) lastDirection = direction;
+        if (direction.magnitude > 0.2f) lastDirection = direction;
     }
     private void SetupSelfCamera()
     {
@@ -93,7 +93,6 @@ public class N_PlayerController : NetworkBehaviour
     private void EmoteManagement()
     {
         if(!emoteWheel) Helpers.ErrorReferenceInspectorFromGo(gameObject);
-        
         var enablingCondition = Input.GetKey(KeyCode.H);
 
         emoteWheel.gameObject.SetActive(enablingCondition);

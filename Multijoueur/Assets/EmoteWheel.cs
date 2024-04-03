@@ -27,9 +27,9 @@ public class EmoteWheel : NetworkBehaviour
 
     private void OnDisable()
     {
-        if (!IsOwner) return;
-        
         if (GetComponentInParent<N_PlayerEmotes>().isEmoting) return;
+        
+        Debug.Log("EmoteRPC");
         GetComponentInParent<N_PlayerController>().Emote_Rpc(currentIndexPosition);
     }
 
