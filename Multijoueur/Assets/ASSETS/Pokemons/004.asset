@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14db7237d58e2384ea444572b203318b, type: 3}
+  m_Name: 004
+  m_EditorClassIdentifier: 
+  pokemonSprite: {fileID: -1739949732, guid: 9b22572a7cf92314db68f20b0ab67787, type: 3}
+  pokemonSpriteShiny: {fileID: -1031385023, guid: 9b22572a7cf92314db68f20b0ab67787,
+    type: 3}
+  pokemonName: Snailz
+  pokemonID: 3
+  pokemonRarity: 1
+  moveSpeed: 5
+  extensionMoveMinMax: {x: 1, y: 3}
