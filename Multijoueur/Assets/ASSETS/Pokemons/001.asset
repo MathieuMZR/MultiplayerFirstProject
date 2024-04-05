@@ -18,5 +18,5 @@ MonoBehaviour:
   pokemonName: Beanie
   pokemonID: 0
   pokemonRarity: 0
-  moveSpeed: 5
+  moveSpeed: 1
   extensionMoveMinMax: {x: 2, y: 5}

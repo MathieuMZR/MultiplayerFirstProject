@@ -18,5 +18,5 @@ MonoBehaviour:
   pokemonName: Snailz
   pokemonID: 3
   pokemonRarity: 1
-  moveSpeed: 5
+  moveSpeed: 1
   extensionMoveMinMax: {x: 1, y: 3}
