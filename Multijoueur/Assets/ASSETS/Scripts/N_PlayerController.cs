@@ -77,8 +77,8 @@ public class N_PlayerController : NetworkBehaviour
     #region Animation
     private void SpriteRotation()
     {
-        var axis = lastDirection.x > 0 ? 0 : 180;
-        spriteTransform.DORotate(new Vector3(0,axis,0), 0.35f);
+        var axis = lastDirection.x > 0 ? 1 : -1;
+        spriteTransform.DOScaleX(axis, 0.15f);
     }
     
     private void AnimationManagement()

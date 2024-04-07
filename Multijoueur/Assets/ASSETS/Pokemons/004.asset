@@ -13,10 +13,16 @@ MonoBehaviour:
   m_Name: 004
   m_EditorClassIdentifier: 
   pokemonSprite: {fileID: -1739949732, guid: 9b22572a7cf92314db68f20b0ab67787, type: 3}
+  pokemonSpriteVariation: {fileID: 1706137879, guid: 9b22572a7cf92314db68f20b0ab67787,
+    type: 3}
   pokemonSpriteShiny: {fileID: -1031385023, guid: 9b22572a7cf92314db68f20b0ab67787,
     type: 3}
-  pokemonName: Snailz
+  pokemonSpriteShinyVariation: {fileID: -1407403835, guid: 9b22572a7cf92314db68f20b0ab67787,
+    type: 3}
+  canBeAltForm: 1
+  variationProbability: 0.25
+  pokemonName: '?'
   pokemonID: 3
-  pokemonRarity: 1
-  moveSpeed: 1
+  pokemonRarity: 0
+  timeToMove: 2
   extensionMoveMinMax: {x: 1, y: 3}

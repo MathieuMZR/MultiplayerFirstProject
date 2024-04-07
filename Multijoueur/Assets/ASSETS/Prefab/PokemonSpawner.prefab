@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1767416159854429082}
   - component: {fileID: 6657311111132064106}
   - component: {fileID: 592078434452762389}
-  - component: {fileID: 1444085753251179626}
+  - component: {fileID: 5142003854599178345}
   m_Layer: 0
   m_Name: PokemonSpawner
   m_TagString: Untagged
@@ -67,10 +67,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08a88e47875c7049b3fdd66ef790959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possiblePokemon: []
-  spawnRadius: 3
---- !u!135 &1444085753251179626
-SphereCollider:
+  possiblePokemon:
+  - {fileID: 11400000, guid: 68fd714dacaa9ca49976c19e552d5371, type: 2}
+  spawnRadius: 15
+  detectRadius: 20
+  maxPokemon: 10
+  pokemonSpawnedCount:
+    m_InternalValue: 0
+--- !u!65 &5142003854599178345
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -88,5 +93,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 3
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

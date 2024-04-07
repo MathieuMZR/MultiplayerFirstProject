@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: 003
   m_EditorClassIdentifier: 
   pokemonSprite: {fileID: -77185306, guid: 14af4904aac08d543b1196d64e1f1f41, type: 3}
+  pokemonSpriteVariation: {fileID: 0}
   pokemonSpriteShiny: {fileID: -304883511, guid: 14af4904aac08d543b1196d64e1f1f41,
     type: 3}
-  pokemonName: Seendeed
+  pokemonSpriteShinyVariation: {fileID: 0}
+  canBeAltForm: 0
+  variationProbability: 0
+  pokemonName: Germigraine
   pokemonID: 2
-  pokemonRarity: 1
-  moveSpeed: 1
+  pokemonRarity: 0
+  timeToMove: 2
   extensionMoveMinMax: {x: 2, y: 5}

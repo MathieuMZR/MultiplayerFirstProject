@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: 001
   m_EditorClassIdentifier: 
   pokemonSprite: {fileID: 948953081, guid: a077de8cd455e3c42b26dc7e1819d317, type: 3}
+  pokemonSpriteVariation: {fileID: 0}
   pokemonSpriteShiny: {fileID: 149619768, guid: a077de8cd455e3c42b26dc7e1819d317,
     type: 3}
-  pokemonName: Beanie
+  pokemonSpriteShinyVariation: {fileID: 0}
+  canBeAltForm: 0
+  variationProbability: 0
+  pokemonName: "Bon\xE9"
   pokemonID: 0
   pokemonRarity: 0
-  moveSpeed: 1
+  timeToMove: 2
   extensionMoveMinMax: {x: 2, y: 5}

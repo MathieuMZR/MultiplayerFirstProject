@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14af4904aac08d543b1196d64e1f1f41
+guid: 4e20f22448a6fbe40b1d16c70dc3cb3b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Pok\xE9mon03_0"
+      name: "Pok\xE9mon05_0"
       rect:
         serializedVersion: 2
-        x: 192
-        y: 50
-        width: 745
-        height: 927
+        x: 202
+        y: 75
+        width: 627
+        height: 907
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c04a8779143f06349bb996ea6e2ff266
-      internalID: -77185306
+      spriteID: 535f2e5875777014398f688cb9d2a3ef
+      internalID: -46941566
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Pok\xE9mon03_1"
+      name: "Pok\xE9mon05_1"
       rect:
         serializedVersion: 2
-        x: 1110
-        y: 50
-        width: 744
-        height: 927
+        x: 1136
+        y: 75
+        width: 628
+        height: 907
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7861696eabc600649894c7b1dd50abfc
-      internalID: -304883511
+      spriteID: 2324df8b6724ba148a8c94c719dff988
+      internalID: 944128901
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "Pok\xE9mon03_0": -77185306
-      "Pok\xE9mon03_1": -304883511
+      "Pok\xE9mon05_0": -46941566
+      "Pok\xE9mon05_1": 944128901
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

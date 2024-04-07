@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 512
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,10 +113,10 @@ TextureImporter:
       name: "Pok\xE9mon04_0"
       rect:
         serializedVersion: 2
-        x: 5
-        y: 46
-        width: 537
-        height: 436
+        x: 190
+        y: 1136
+        width: 771
+        height: 798
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: "Pok\xE9mon04_1"
       rect:
         serializedVersion: 2
-        x: 554
-        y: 46
-        width: 537
-        height: 436
+        x: 1057
+        y: 1136
+        width: 770
+        height: 798
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,6 +147,48 @@ TextureImporter:
       bones: []
       spriteID: 49240aaa185ec0043bc00a86b81186c3
       internalID: -1031385023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Pok\xE9mon04_2"
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 226
+        width: 770
+        height: 797
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26886c7772fffc04892fc9baa3e94fc6
+      internalID: 1706137879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Pok\xE9mon04_3"
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 226
+        width: 771
+        height: 797
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 940461a79cbbf844b85b0d7bedf3cc2e
+      internalID: -1407403835
       vertices: []
       indices: 
       edges: []
@@ -164,6 +206,8 @@ TextureImporter:
     nameFileIdTable:
       "Pok\xE9mon04_0": -1739949732
       "Pok\xE9mon04_1": -1031385023
+      "Pok\xE9mon04_2": 1706137879
+      "Pok\xE9mon04_3": -1407403835
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

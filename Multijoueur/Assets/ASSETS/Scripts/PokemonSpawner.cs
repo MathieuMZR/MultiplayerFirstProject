@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -15,10 +16,13 @@ public class PokemonSpawner : NetworkBehaviour
 
     private void Start()
     {
-        GetComponent<SphereCollider>().isTrigger = true;
-        GetComponent<SphereCollider>().radius = detectRadius;
+        GetComponent<BoxCollider>().isTrigger = true;
+        GetComponent<BoxCollider>().size = Vector3.one * detectRadius;
+
+        StartCoroutine(nameof(SpawnLoop));
     }
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -26,15 +30,15 @@ public class PokemonSpawner : NetworkBehaviour
             if(pokemonSpawnedCount.Value < maxPokemon)
                 SpawnPokemon();
         }
-    }
+    }*/
 
     void SpawnPokemon()
     {
         pokemonSpawnedCount.Value++;
         
-        var posToInCircle = (Random.insideUnitCircle * spawnRadius);
-        var posToSpawn = transform.position + new Vector3(posToInCircle.x, 0, posToInCircle.y);
-
+        var posToSpawn = transform.position + new Vector3(Random.Range(-spawnRadius, spawnRadius), 
+                transform.position.y, Random.Range(-spawnRadius, spawnRadius));
+        
         var instance = Instantiate(PokemonManager.instance.pokemonPrefab.gameObject, 
             posToSpawn, Quaternion.identity);
         
@@ -47,13 +51,29 @@ public class PokemonSpawner : NetworkBehaviour
     }
 
     Pokemon_SO GetRandomPokemon() => possiblePokemon[Random.Range(0, possiblePokemon.Length)];
+
+    public void DeSpawnPokemon(NetworkObject obj)
+    {
+        pokemonSpawnedCount.Value--;
+        obj.Despawn();
+    }
+
+    IEnumerator SpawnLoop()
+    {
+        yield return new WaitForSeconds(1.5f);
+        if (pokemonSpawnedCount.Value < maxPokemon)
+        {
+            SpawnPokemon();
+        }
+        StartCoroutine(nameof(SpawnLoop));
+    }
     
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireSphere(transform.position, spawnRadius);
-        
+        Gizmos.DrawWireCube(transform.position, Vector3.one * spawnRadius);
+
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, detectRadius);
+        Gizmos.DrawWireCube(transform.position, Vector3.one * detectRadius);
     }
 }
