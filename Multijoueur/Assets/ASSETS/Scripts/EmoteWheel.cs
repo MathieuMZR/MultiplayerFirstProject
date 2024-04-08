@@ -27,10 +27,10 @@ public class EmoteWheel : NetworkBehaviour
 
     private void OnDisable()
     {
-        if (GetComponentInParent<N_PlayerEmotes>().isEmoting) return;
+        if (GetComponentInParent<PlayerEmotes>().isEmoting) return;
         
         Debug.Log("EmoteRPC");
-        GetComponentInParent<N_PlayerController>().Emote_Rpc(currentIndexPosition);
+        GetComponentInParent<PlayerController>().Emote_Rpc(currentIndexPosition);
     }
 
     void CalculateNearestVector3InWheel()

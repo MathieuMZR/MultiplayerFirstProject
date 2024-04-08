@@ -6,7 +6,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class N_PlayerEmotes : NetworkBehaviour
+public class PlayerEmotes : NetworkBehaviour
 {
     [SerializeField] private SpriteRenderer face;
     [SerializeField] private Image bubbleExpression;

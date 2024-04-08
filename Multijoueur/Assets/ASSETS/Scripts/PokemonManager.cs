@@ -7,6 +7,9 @@ using UnityEngine;
 public class PokemonManager : NetworkBehaviour
 {
     public Pokemon pokemonPrefab;
+    public NetworkVariable<int> connectedPlayers = new NetworkVariable<int>();
+
+    public Pokemon_SO[] allPokemon;
     
     // 1/256 = 0.00390625f
     public float shinyRate = 0.00390625f;
@@ -19,15 +22,13 @@ public class PokemonManager : NetworkBehaviour
         else instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnPlayerJoin()
     {
-        
+        connectedPlayers.Value++;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void OnPlayerQuit()
     {
-        
+        connectedPlayers.Value--;
     }
 }

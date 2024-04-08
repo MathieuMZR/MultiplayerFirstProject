@@ -7,57 +7,25 @@ using Random = UnityEngine.Random;
 
 public class PokemonSpawner : NetworkBehaviour
 {
-    [SerializeField] private Pokemon_SO[] possiblePokemon;
+    [SerializeField] private int[] possiblePokemonIDs;
     [SerializeField] private float spawnRadius;
     [SerializeField] private float detectRadius;
     [SerializeField] private int maxPokemon;
 
     public NetworkVariable<int> pokemonSpawnedCount = new NetworkVariable<int>();
 
-    private void Start()
+    private IEnumerator Start()
     {
-        GetComponent<BoxCollider>().isTrigger = true;
-        GetComponent<BoxCollider>().size = Vector3.one * detectRadius;
-
+        //Spawning wait to at least one player to connect.
+        yield return new WaitUntil(() => PokemonManager.instance.connectedPlayers.Value > 0);
+        
+        //Check if the spawner is owner, then spawn only on the server before replicate.
+        if (!IsOwner) yield return null;
+        
+        //Call RPC to replicate to server / clients.
         StartCoroutine(nameof(SpawnLoop));
     }
-
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if(pokemonSpawnedCount.Value < maxPokemon)
-                SpawnPokemon();
-        }
-    }*/
-
-    void SpawnPokemon()
-    {
-        pokemonSpawnedCount.Value++;
-        
-        var posToSpawn = transform.position + new Vector3(Random.Range(-spawnRadius, spawnRadius), 
-                transform.position.y, Random.Range(-spawnRadius, spawnRadius));
-        
-        var instance = Instantiate(PokemonManager.instance.pokemonPrefab.gameObject, 
-            posToSpawn, Quaternion.identity);
-        
-        var instancePokemonScript = instance.GetComponent<Pokemon>();
-        instancePokemonScript.InitiatePokemon(GetRandomPokemon());
-        instancePokemonScript.spawnerParent = this;
-        
-        var instanceNetworkObject = instance.GetComponent<NetworkObject>();
-        instanceNetworkObject.Spawn();
-    }
-
-    Pokemon_SO GetRandomPokemon() => possiblePokemon[Random.Range(0, possiblePokemon.Length)];
-
-    public void DeSpawnPokemon(NetworkObject obj)
-    {
-        pokemonSpawnedCount.Value--;
-        obj.Despawn();
-    }
-
+    
     IEnumerator SpawnLoop()
     {
         yield return new WaitForSeconds(1.5f);
@@ -66,6 +34,34 @@ public class PokemonSpawner : NetworkBehaviour
             SpawnPokemon();
         }
         StartCoroutine(nameof(SpawnLoop));
+    }
+    
+    private void SpawnPokemon()
+    {
+        pokemonSpawnedCount.Value++;
+        
+        var posToSpawn = transform.position + new Vector3(Random.Range(-spawnRadius, spawnRadius), 
+            transform.position.y, Random.Range(-spawnRadius, spawnRadius));
+        
+        var instance = Instantiate(PokemonManager.instance.pokemonPrefab.gameObject, 
+            posToSpawn, Quaternion.identity);
+        
+        var instancePokemonScript = instance.GetComponent<Pokemon>();
+        instancePokemonScript.pokemonID.Value = GetRandomPokemonID();
+        instancePokemonScript.spawnerParent = this;
+        
+        var instanceNetworkObject = instance.GetComponent<NetworkObject>();
+        instanceNetworkObject.Spawn();
+    }
+
+    int GetRandomPokemonID() => possiblePokemonIDs[Random.Range(0, possiblePokemonIDs.Length)];
+
+    public void DeSpawnPokemon(NetworkObject obj)
+    {
+        if (!IsOwner) return;
+        
+        pokemonSpawnedCount.Value--;
+        obj.Despawn();
     }
     
     private void OnDrawGizmos()

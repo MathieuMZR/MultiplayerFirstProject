@@ -9,12 +9,10 @@ public class Pokemon : NetworkBehaviour
 {
     [Header("Infos")]
     public Pokemon_SO pokemonScriptable;
-    public string pokemonName;
-    public int pokemonID;
-    public Pokemon_SO.PokemonRarity pokemonRarity;
+    public NetworkVariable<int> pokemonID = new NetworkVariable<int>();
 
-    public bool isShiny;
-    public bool isAltForm;
+    public NetworkVariable<bool> isShiny;
+    public NetworkVariable<bool> isAltForm;
 
     [Header("Spawner")]
     public PokemonSpawner spawnerParent;
@@ -39,29 +37,33 @@ public class Pokemon : NetworkBehaviour
     {
         base.OnNetworkSpawn();
         
+        if (!IsOwner) return;
+        
+        InitiatePokemon();
+        
         StartCoroutine(nameof(MoveRoutine));
         StartCoroutine(nameof(LifeTime));
     }
-
-    public void InitiatePokemon(Pokemon_SO pokemon)
+    
+    private void InitiatePokemon()
     {
-        pokemonScriptable = pokemon;
+        pokemonScriptable = PokemonManager.instance.allPokemon[pokemonID.Value];
         
-        isShiny = Random.value < PokemonManager.instance.shinyRate;
+        isShiny.Value = Random.value < PokemonManager.instance.shinyRate;
         
         if(pokemonScriptable.canBeAltForm)
-            isAltForm = Random.value < pokemonScriptable.variationProbability;
+            isAltForm.Value = Random.value < pokemonScriptable.variationProbability;
         
         SpawnAnimation();
         
         animator = GetComponent<Animator>();
         pokemonSounds = GetComponent<PokemonSounds>();
         
-        pokemonSprite.sprite = isAltForm ? pokemonScriptable.pokemonSpriteVariation : pokemonScriptable.pokemonSprite;
+        pokemonSprite.sprite = isAltForm.Value ? pokemonScriptable.pokemonSpriteVariation : pokemonScriptable.pokemonSprite;
 
-        if (isShiny)
+        if (isShiny.Value)
         {
-            pokemonSprite.sprite = isAltForm ? pokemonScriptable.pokemonSpriteShinyVariation : pokemonScriptable.pokemonSpriteShiny;
+            pokemonSprite.sprite = isAltForm .Value? pokemonScriptable.pokemonSpriteShinyVariation : pokemonScriptable.pokemonSpriteShiny;
             
             pokemonShinyParticle.gameObject.SetActive(true);
             pokemonLight.intensity = k_lightShiny;
@@ -75,10 +77,7 @@ public class Pokemon : NetworkBehaviour
             pokemonLight.enabled = false;
         }
         
-        pokemonSounds.AppearSound(isShiny);
-
-        pokemonID = pokemonScriptable.pokemonID;
-        pokemonRarity = pokemonScriptable.pokemonRarity;
+        pokemonSounds.AppearSound(isShiny.Value);
     }
 
     void SpawnAnimation()
@@ -88,7 +87,7 @@ public class Pokemon : NetworkBehaviour
 
         transform.DOJump(transform.position, 0.5f, 1, 0.5f);
         
-        if(isShiny) pokemonShinyParticlesSpawn.Play();
+        if(isShiny.Value) pokemonShinyParticlesSpawn.Play();
     }
 
     IEnumerator MoveRoutine()

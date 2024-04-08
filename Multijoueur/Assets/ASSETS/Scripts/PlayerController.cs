@@ -4,7 +4,7 @@ using Unity.Netcode;
 using UnityEditor;
 using UnityEngine;
 
-public class N_PlayerController : NetworkBehaviour
+public class PlayerController : NetworkBehaviour
 {
     [SerializeField] private float groundDrag;
     [SerializeField] private float walkSpeed;
@@ -17,7 +17,7 @@ public class N_PlayerController : NetworkBehaviour
     [SerializeField] private EmoteWheel emoteWheel;
     
     private Rigidbody _rb;
-    private N_PlayerEmotes _playerEmotes;
+    private PlayerEmotes _playerEmotes;
     private Animator _animator;
     
     private Vector3 direction;
@@ -27,7 +27,7 @@ public class N_PlayerController : NetworkBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _playerEmotes = GetComponent<N_PlayerEmotes>();
+        _playerEmotes = GetComponent<PlayerEmotes>();
         _animator = GetComponent<Animator>();
     }
 
@@ -35,6 +35,17 @@ public class N_PlayerController : NetworkBehaviour
     {
         base.OnNetworkSpawn();
         SetupSelfCamera();
+        
+        if (!IsOwner) return;
+        PokemonManager.instance.OnPlayerJoin();
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        base.OnNetworkDespawn();
+        
+        if (!IsOwner) return;
+        PokemonManager.instance.OnPlayerQuit();
     }
 
     // Update is called once per frame
@@ -104,8 +115,8 @@ public class N_PlayerController : NetworkBehaviour
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
     

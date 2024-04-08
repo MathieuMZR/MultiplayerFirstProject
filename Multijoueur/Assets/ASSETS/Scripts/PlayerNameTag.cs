@@ -4,7 +4,7 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
-public class N_PlayerNameTag : NetworkBehaviour
+public class PlayerNameTag : NetworkBehaviour
 {
     [SerializeField] private TextMeshProUGUI nameTagText;
 
