@@ -80,12 +80,12 @@ MonoBehaviour:
   SyncPositionY: 1
   SyncPositionZ: 1
   SyncRotAngleX: 0
-  SyncRotAngleY: 1
+  SyncRotAngleY: 0
   SyncRotAngleZ: 0
   SyncScaleX: 1
   SyncScaleY: 1
   SyncScaleZ: 1
-  PositionThreshold: 0.001
+  PositionThreshold: 0.0001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
   UseQuaternionSynchronization: 0
@@ -107,10 +107,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pokemonScriptable: {fileID: 0}
-  pokemonName: 
-  pokemonID: 0
-  pokemonRarity: 0
-  isShiny: 0
+  pokemonID:
+    m_InternalValue: 0
+  isShiny:
+    m_InternalValue: 0
+  isAltForm:
+    m_InternalValue: 0
+  isMoving:
+    m_InternalValue: 0
   spawnerParent: {fileID: 0}
   pokemonSprite: {fileID: 6504853176786074865}
   pokemonShinyParticle: {fileID: 1368981545675750886}

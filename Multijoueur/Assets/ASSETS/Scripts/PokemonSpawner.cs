@@ -20,7 +20,7 @@ public class PokemonSpawner : NetworkBehaviour
         yield return new WaitUntil(() => PokemonManager.instance.connectedPlayers.Value > 0);
         
         //Check if the spawner is owner, then spawn only on the server before replicate.
-        if (!IsOwner) yield return null;
+        if (!IsHost) yield break;
         
         //Call RPC to replicate to server / clients.
         StartCoroutine(nameof(SpawnLoop));
@@ -35,7 +35,6 @@ public class PokemonSpawner : NetworkBehaviour
         }
         StartCoroutine(nameof(SpawnLoop));
     }
-    
     private void SpawnPokemon()
     {
         pokemonSpawnedCount.Value++;

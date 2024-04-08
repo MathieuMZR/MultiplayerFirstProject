@@ -36,7 +36,7 @@ public class PlayerController : NetworkBehaviour
         base.OnNetworkSpawn();
         SetupSelfCamera();
         
-        if (!IsOwner) return;
+        if (!IsHost) return;
         PokemonManager.instance.OnPlayerJoin();
     }
 
@@ -44,7 +44,7 @@ public class PlayerController : NetworkBehaviour
     {
         base.OnNetworkDespawn();
         
-        if (!IsOwner) return;
+        if (!IsHost) return;
         PokemonManager.instance.OnPlayerQuit();
     }
 

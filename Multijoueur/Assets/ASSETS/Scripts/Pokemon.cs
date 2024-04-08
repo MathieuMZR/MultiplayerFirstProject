@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class Pokemon : NetworkBehaviour
 {
@@ -13,6 +15,10 @@ public class Pokemon : NetworkBehaviour
 
     public NetworkVariable<bool> isShiny;
     public NetworkVariable<bool> isAltForm;
+    
+    public NetworkVariable<bool> isMoving;
+
+    private NetworkVariable<float> lastDirectionX = new NetworkVariable<float>(1f);
 
     [Header("Spawner")]
     public PokemonSpawner spawnerParent;
@@ -37,22 +43,31 @@ public class Pokemon : NetworkBehaviour
     {
         base.OnNetworkSpawn();
         
-        if (!IsOwner) return;
-        
         InitiatePokemon();
+
+        if (!IsOwner) return;
         
         StartCoroutine(nameof(MoveRoutine));
         StartCoroutine(nameof(LifeTime));
+    }
+    
+    private void Update()
+    {
+        SpriteRotation(lastDirectionX.Value);
+        SetAnimatorWalkPropriety();
     }
     
     private void InitiatePokemon()
     {
         pokemonScriptable = PokemonManager.instance.allPokemon[pokemonID.Value];
         
-        isShiny.Value = Random.value < PokemonManager.instance.shinyRate;
-        
-        if(pokemonScriptable.canBeAltForm)
-            isAltForm.Value = Random.value < pokemonScriptable.variationProbability;
+        if (IsHost)
+        {
+            isShiny.Value = Random.value < PokemonManager.instance.shinyRate;
+
+            if (pokemonScriptable.canBeAltForm)
+                isAltForm.Value = Random.value < pokemonScriptable.variationProbability;
+        }
         
         SpawnAnimation();
         
@@ -98,29 +113,30 @@ public class Pokemon : NetworkBehaviour
                         new Vector3(Random.insideUnitCircle.x, 0, Random.insideUnitCircle.y) *
                         Random.Range(pokemonScriptable.extensionMoveMinMax.x,
                             pokemonScriptable.extensionMoveMinMax.y);
+        
         var timeToMove = pokemonScriptable.timeToMove / 5f * Vector3.Distance(transform.position, posToMove);
         transform.DOMove(posToMove, timeToMove).SetEase(Ease.Linear);
         
-        SpriteRotation((posToMove - transform.position).normalized);
-        SetAnimatorWalkPropriety(true, timeToMove);
+        if (IsHost) lastDirectionX.Value = (posToMove - transform.position).normalized.x;
+
+        if (IsHost) isMoving.Value = true;
 
         yield return new WaitForSeconds(timeToMove);
-
-        SetAnimatorWalkPropriety(false, 0f);
+        
+        if (IsHost) isMoving.Value = false;
 
         StartCoroutine(nameof(MoveRoutine));
     }
     
-    private void SpriteRotation(Vector3 dir)
+    private void SpriteRotation(float dirX)
     {
-        var axis = dir.x > 0 ? 1 : -1;
+        var axis = dirX > 0 ? 1 : -1;
         pokemonSprite.transform.DOScaleX(axis, 0.15f);
     }
 
-    void SetAnimatorWalkPropriety(bool isWalking, float currentMoveDuration)
+    void SetAnimatorWalkPropriety()
     {
-        animator.SetBool("isWalking", isWalking);
-        animator.speed = isWalking ? Mathf.Lerp(2f, 0.5f, currentMoveDuration / 5f) : 1f;
+        animator.SetBool("isWalking", isMoving.Value);
     }
 
     IEnumerator LifeTime()

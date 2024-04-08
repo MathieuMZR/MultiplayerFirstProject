@@ -19,8 +19,8 @@ MonoBehaviour:
     type: 3}
   pokemonSpriteShinyVariation: {fileID: 412438955, guid: 32787d139ec26df41af46e540c37cf41,
     type: 3}
-  canBeAltForm: 1
-  variationProbability: 0.2
+  canBeAltForm: 0
+  variationProbability: 0
   pokemonName: Bonzai
   pokemonID: 5
   pokemonRarity: 0
