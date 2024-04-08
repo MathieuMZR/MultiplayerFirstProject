@@ -11,6 +11,8 @@ public class PokemonManager : NetworkBehaviour
 
     public Pokemon_SO[] allPokemon;
     
+    public PlayerController localPlayer;
+    
     // 1/256 = 0.00390625f
     public float shinyRate = 0.00390625f;
     
@@ -25,6 +27,9 @@ public class PokemonManager : NetworkBehaviour
     public void OnPlayerJoin()
     {
         connectedPlayers.Value++;
+        
+        localPlayer = NetworkManager.Singleton.ConnectedClients[NetworkManager.Singleton.LocalClientId]
+            .PlayerObject.GetComponent<PlayerController>();
     }
     
     public void OnPlayerQuit()

@@ -46,7 +46,7 @@ public class Pokemon : NetworkBehaviour
         InitiatePokemon();
 
         if (!IsOwner) return;
-        
+
         StartCoroutine(nameof(MoveRoutine));
         StartCoroutine(nameof(LifeTime));
     }
@@ -56,7 +56,7 @@ public class Pokemon : NetworkBehaviour
         SpriteRotation(lastDirectionX.Value);
         SetAnimatorWalkPropriety();
     }
-    
+
     private void InitiatePokemon()
     {
         pokemonScriptable = PokemonManager.instance.allPokemon[pokemonID.Value];
@@ -68,6 +68,8 @@ public class Pokemon : NetworkBehaviour
             if (pokemonScriptable.canBeAltForm)
                 isAltForm.Value = Random.value < pokemonScriptable.variationProbability;
         }
+        
+        if(IsOwner) PokemonManager.instance.localPlayer.UpdatePokemonData(pokemonScriptable, true, false, isShiny.Value);
         
         SpawnAnimation();
         

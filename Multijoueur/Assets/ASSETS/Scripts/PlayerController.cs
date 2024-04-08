@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Cinemachine;
 using DG.Tweening;
 using Unity.Netcode;
@@ -15,6 +17,9 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private Transform spriteTransform;
     
     [SerializeField] private EmoteWheel emoteWheel;
+    [SerializeField] private CanvasGroup pokedexGroup;
+    
+    [Header("Pokemon")] public List<PokemonPokedex> pokemonDatas = new List<PokemonPokedex>();
     
     private Rigidbody _rb;
     private PlayerEmotes _playerEmotes;
@@ -22,6 +27,8 @@ public class PlayerController : NetworkBehaviour
     
     private Vector3 direction;
     private Vector3 lastDirection;
+
+    private bool pokedexOpenned;
     
     // Start is called before the first frame update
     void Start()
@@ -35,6 +42,8 @@ public class PlayerController : NetworkBehaviour
     {
         base.OnNetworkSpawn();
         SetupSelfCamera();
+
+        InitPokedex();
         
         if (!IsHost) return;
         PokemonManager.instance.OnPlayerJoin();
@@ -59,6 +68,8 @@ public class PlayerController : NetworkBehaviour
 
         EmoteManagement();
         AnimationManagement();
+
+        ManageOpenPokedex();
     }
     
     private void FixedUpdate()
@@ -133,4 +144,63 @@ public class PlayerController : NetworkBehaviour
     }
     
     #endregion
+
+    public void ManageOpenPokedex()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            pokedexOpenned = !pokedexOpenned;
+            
+            pokedexGroup.alpha = pokedexOpenned ? 1f : 0f;
+            pokedexGroup.interactable = pokedexOpenned;
+            pokedexGroup.blocksRaycasts = pokedexOpenned;
+        }
+    }
+    
+    private void InitPokedex()
+    {
+        foreach (var pkmnSo in PokemonManager.instance.allPokemon)
+        {
+            pokemonDatas.Add(new PokemonPokedex(pkmnSo));
+        }
+    }
+
+    public void UpdatePokemonData(Pokemon_SO pkmn, bool incrementEnc, bool incrementCatch, bool isShiny)
+    {
+        foreach (var data in pokemonDatas)
+        {
+            if (pkmn == data.pokemonScriptable)
+            {
+                if (incrementEnc) data.encounters++;
+                if (incrementCatch) data.catches++;
+                
+                if(incrementEnc && isShiny) data.encountersShiny++;
+                if(incrementCatch && isShiny) data.catchesShiny++;
+
+                pokedexGroup.GetComponent<Pokedex>().RefreshAllBoxes();
+            }
+        }
+    }
+}
+
+
+[Serializable]
+public class PokemonPokedex
+{
+    public Pokemon_SO pokemonScriptable;
+    
+    public int encounters;
+    public int encountersVar;
+    public int encountersShiny;
+    public int encountersVarShiny;
+    
+    public int catches;
+    public int catchesVar;
+    public int catchesShiny;
+    public int catchesVarShiny;
+
+    public PokemonPokedex(Pokemon_SO so)
+    {
+        pokemonScriptable = so;
+    }
 }
