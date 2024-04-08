@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14db7237d58e2384ea444572b203318b, type: 3}
-  m_Name: 001
+  m_Name: 007
   m_EditorClassIdentifier: 
-  pokemonSprite: {fileID: 948953081, guid: a077de8cd455e3c42b26dc7e1819d317, type: 3}
+  pokemonSprite: {fileID: 1806419066, guid: 43e68315910916c4984c86acc95e54ff, type: 3}
   pokemonSpriteVariation: {fileID: 0}
-  pokemonSpriteShiny: {fileID: 149619768, guid: a077de8cd455e3c42b26dc7e1819d317,
+  pokemonSpriteShiny: {fileID: 492272185, guid: 43e68315910916c4984c86acc95e54ff,
     type: 3}
   pokemonSpriteShinyVariation: {fileID: 0}
   canBeAltForm: 0
   variationProbability: 0
-  pokemonName: "Bon\xE9"
-  pokemonID: 0
+  pokemonName: Vieuloniste
+  pokemonID: 6
   pokemonRarity: 0
   timeToMove: 2
   extensionMoveMinMax: {x: 5, y: 10}

@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: 003
   m_EditorClassIdentifier: 
   pokemonSprite: {fileID: -77185306, guid: 14af4904aac08d543b1196d64e1f1f41, type: 3}
-  pokemonSpriteVariation: {fileID: 0}
-  pokemonSpriteShiny: {fileID: -304883511, guid: 14af4904aac08d543b1196d64e1f1f41,
+  pokemonSpriteVariation: {fileID: -304883511, guid: 14af4904aac08d543b1196d64e1f1f41,
     type: 3}
-  pokemonSpriteShinyVariation: {fileID: 0}
-  canBeAltForm: 0
-  variationProbability: 0
-  pokemonName: Germigraine
+  pokemonSpriteShiny: {fileID: 2101965986, guid: 14af4904aac08d543b1196d64e1f1f41,
+    type: 3}
+  pokemonSpriteShinyVariation: {fileID: -1631815120, guid: 14af4904aac08d543b1196d64e1f1f41,
+    type: 3}
+  canBeAltForm: 1
+  variationProbability: 0.2
+  pokemonName: Crayomine
   pokemonID: 2
   pokemonRarity: 0
   timeToMove: 2
-  extensionMoveMinMax: {x: 2, y: 5}
+  extensionMoveMinMax: {x: 5, y: 10}

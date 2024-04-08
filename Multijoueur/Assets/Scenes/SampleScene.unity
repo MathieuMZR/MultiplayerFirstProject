@@ -186,6 +186,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: f422cc2bab2cd004c8b3b68c9fc48564,
         type: 2}
+    - target: {fileID: 592078434452762389, guid: c3064cc32f065144b805f671b61d64f9,
+        type: 3}
+      propertyPath: possiblePokemonIDs.Array.size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1767416159854429082, guid: c3064cc32f065144b805f671b61d64f9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -654,7 +659,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832575517}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -1338,47 +1343,6 @@ PrefabInstance:
       propertyPath: shinyRate
       value: 0.25
       objectReference: {fileID: 0}
-    - target: {fileID: 3355357060080085072, guid: 748c2ce9e7e24cd4bb38a8f0e21d537f,
-        type: 3}
-      propertyPath: allPokemon.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3355357060080085072, guid: 748c2ce9e7e24cd4bb38a8f0e21d537f,
-        type: 3}
-      propertyPath: allPokemon.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 68fd714dacaa9ca49976c19e552d5371,
-        type: 2}
-    - target: {fileID: 3355357060080085072, guid: 748c2ce9e7e24cd4bb38a8f0e21d537f,
-        type: 3}
-      propertyPath: allPokemon.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: a05f6d37a4767fa49ad18ac69afa94df,
-        type: 2}
-    - target: {fileID: 3355357060080085072, guid: 748c2ce9e7e24cd4bb38a8f0e21d537f,
-        type: 3}
-      propertyPath: allPokemon.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 5b3339a219f66234d908e6c138e0134b,
-        type: 2}
-    - target: {fileID: 3355357060080085072, guid: 748c2ce9e7e24cd4bb38a8f0e21d537f,
-        type: 3}
-      propertyPath: allPokemon.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: fc2ce1b13c6ede94fa467dd57b9be324,
-        type: 2}
-    - target: {fileID: 3355357060080085072, guid: 748c2ce9e7e24cd4bb38a8f0e21d537f,
-        type: 3}
-      propertyPath: allPokemon.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: b76400aaa162b854d9238ba3cedc16f7,
-        type: 2}
-    - target: {fileID: 3355357060080085072, guid: 748c2ce9e7e24cd4bb38a8f0e21d537f,
-        type: 3}
-      propertyPath: allPokemon.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: f422cc2bab2cd004c8b3b68c9fc48564,
-        type: 2}
     - target: {fileID: 4815654236733392842, guid: 748c2ce9e7e24cd4bb38a8f0e21d537f,
         type: 3}
       propertyPath: m_Name

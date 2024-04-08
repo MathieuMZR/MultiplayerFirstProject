@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6b23d196958d1024cb52ff594b0ff638
+guid: 43e68315910916c4984c86acc95e54ff
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Pok\xE9mon02_0"
+      name: "Pok\xE9mon07_0"
       rect:
         serializedVersion: 2
-        x: 395
-        y: 186
-        width: 530
-        height: 651
+        x: 318
+        y: 58
+        width: 516
+        height: 908
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cacdb67963ba395438f3f18f6052fffe
-      internalID: -295150325
+      spriteID: e1c94ddefb9ad0c4e9f1266254178d09
+      internalID: 1806419066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Pok\xE9mon02_1"
+      name: "Pok\xE9mon07_1"
       rect:
         serializedVersion: 2
-        x: 1194
-        y: 186
-        width: 530
-        height: 651
+        x: 1075
+        y: 58
+        width: 518
+        height: 908
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e03be46d50c2c0c4fb77ed14e353212d
-      internalID: 1706593590
+      spriteID: 50c670dd9adaa1e4db28506e8c69f3e8
+      internalID: 492272185
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f445665e1207bd2438219f14cfc6d765
+    spriteID: 2d10b5aeb8fb35946819d0e50d12a54f
     internalID: 0
     vertices: []
     indices: 
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "Pok\xE9mon02_0": -295150325
-      "Pok\xE9mon02_1": 1706593590
+      "Pok\xE9mon07_0": 1806419066
+      "Pok\xE9mon07_1": 492272185
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

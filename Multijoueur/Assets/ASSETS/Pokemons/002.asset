@@ -23,4 +23,4 @@ MonoBehaviour:
   pokemonID: 1
   pokemonRarity: 0
   timeToMove: 2
-  extensionMoveMinMax: {x: 2, y: 5}
+  extensionMoveMinMax: {x: 5, y: 10}
