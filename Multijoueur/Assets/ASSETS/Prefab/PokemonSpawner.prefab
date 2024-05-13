@@ -66,9 +66,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08a88e47875c7049b3fdd66ef790959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possiblePokemonIDs: 00000000010000000200000003000000040000000500000006000000
+  possiblePokemonIDs: 000000000100000002000000030000000400000005000000060000000700000008000000
   spawnRadius: 15
-  detectRadius: 20
-  maxPokemon: 10
+  detectRadius: 15
+  maxPokemon: 7
   pokemonSpawnedCount:
     m_InternalValue: 0

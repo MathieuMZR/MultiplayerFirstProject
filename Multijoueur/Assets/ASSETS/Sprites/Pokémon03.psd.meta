@@ -113,7 +113,7 @@ TextureImporter:
       name: "Pok\xE9mon03_0"
       rect:
         serializedVersion: 2
-        x: 119
+        x: 175
         y: 79
         width: 249
         height: 866
@@ -134,7 +134,7 @@ TextureImporter:
       name: "Pok\xE9mon03_1"
       rect:
         serializedVersion: 2
-        x: 551
+        x: 607
         y: 79
         width: 249
         height: 799
@@ -155,9 +155,9 @@ TextureImporter:
       name: "Pok\xE9mon03_2"
       rect:
         serializedVersion: 2
-        x: 1138
+        x: 1147
         y: 79
-        width: 248
+        width: 249
         height: 866
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -176,9 +176,9 @@ TextureImporter:
       name: "Pok\xE9mon03_3"
       rect:
         serializedVersion: 2
-        x: 1570
+        x: 1579
         y: 79
-        width: 248
+        width: 249
         height: 799
       alignment: 7
       pivot: {x: 0.5, y: 0}

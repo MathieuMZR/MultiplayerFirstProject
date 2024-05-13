@@ -113,10 +113,10 @@ TextureImporter:
       name: "Pok\xE9mon06_0"
       rect:
         serializedVersion: 2
-        x: 359
-        y: 46
-        width: 519
-        height: 950
+        x: 279
+        y: 1163
+        width: 510
+        height: 846
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: "Pok\xE9mon06_1"
       rect:
         serializedVersion: 2
-        x: 1114
-        y: 46
-        width: 519
-        height: 950
+        x: 1280
+        y: 1163
+        width: 510
+        height: 846
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,6 +147,48 @@ TextureImporter:
       bones: []
       spriteID: 4637a5ed8e6cb774ba2d0df73233a7bb
       internalID: 1554515096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Pok\xE9mon06_2"
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 67
+        width: 543
+        height: 969
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17664601a0c82964aab020b44b476015
+      internalID: 1888548185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Pok\xE9mon06_3"
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 55
+        width: 543
+        height: 969
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fc8f677b12fe4f4ab11b6014d94efac
+      internalID: -1396839763
       vertices: []
       indices: 
       edges: []
@@ -164,6 +206,8 @@ TextureImporter:
     nameFileIdTable:
       "Pok\xE9mon06_0": 98343032
       "Pok\xE9mon06_1": 1554515096
+      "Pok\xE9mon06_2": 1888548185
+      "Pok\xE9mon06_3": -1396839763
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

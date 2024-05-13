@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14db7237d58e2384ea444572b203318b, type: 3}
-  m_Name: 006
+  m_Name: 008
   m_EditorClassIdentifier: 
-  pokemonSprite: {fileID: 98343032, guid: 32787d139ec26df41af46e540c37cf41, type: 3}
-  pokemonSpriteVariation: {fileID: 1888548185, guid: 32787d139ec26df41af46e540c37cf41,
+  pokemonSprite: {fileID: -268812239, guid: a9e29913788c99f4a85d759131b4fdea, type: 3}
+  pokemonSpriteVariation: {fileID: -1585864839, guid: a9e29913788c99f4a85d759131b4fdea,
     type: 3}
-  pokemonSpriteShiny: {fileID: 1554515096, guid: 32787d139ec26df41af46e540c37cf41,
+  pokemonSpriteShiny: {fileID: 1592840800, guid: a9e29913788c99f4a85d759131b4fdea,
     type: 3}
-  pokemonSpriteShinyVariation: {fileID: -1396839763, guid: 32787d139ec26df41af46e540c37cf41,
+  pokemonSpriteShinyVariation: {fileID: -276439340, guid: a9e29913788c99f4a85d759131b4fdea,
     type: 3}
   canBeAltForm: 1
-  variationProbability: 0.2
-  pokemonName: Bonzai
-  pokemonID: 5
+  variationProbability: 0.15
+  pokemonName: PomPot
+  pokemonID: 7
   pokemonRarity: 0
   timeToMove: 2
   extensionMoveMinMax: {x: 5, y: 10}

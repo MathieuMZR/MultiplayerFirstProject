@@ -78,4 +78,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b76400aaa162b854d9238ba3cedc16f7, type: 2}
   - {fileID: 11400000, guid: f422cc2bab2cd004c8b3b68c9fc48564, type: 2}
   - {fileID: 11400000, guid: 50ef09368bd4bff4da4b0c7cc233a7d0, type: 2}
+  - {fileID: 11400000, guid: f6951b8bf6a5c1640b66e0431a876a0d, type: 2}
+  - {fileID: 11400000, guid: cb50dcc265e6e874dbecaf5d2fdd0157, type: 2}
+  - {fileID: 11400000, guid: cb50dcc265e6e874dbecaf5d2fdd0157, type: 2}
+  localPlayer: {fileID: 0}
   shinyRate: 0.00390625
