@@ -12,6 +12,7 @@ public class Pokemon : NetworkBehaviour
     [Header("Infos")]
     public Pokemon_SO pokemonScriptable;
     public NetworkVariable<int> pokemonID = new NetworkVariable<int>();
+    public NetworkVariable<int> pokemonVariationID = new NetworkVariable<int>();
 
     public NetworkVariable<bool> isShiny;
     public NetworkVariable<bool> isAltForm;
@@ -59,28 +60,33 @@ public class Pokemon : NetworkBehaviour
 
     private void InitiatePokemon()
     {
-        pokemonScriptable = PokemonManager.instance.allPokemon[pokemonID.Value];
+        pokemonScriptable = PokemonManager.instance.FindPokemonFromID(pokemonID.Value);
         
         if (IsHost)
         {
             isShiny.Value = Random.value < PokemonManager.instance.shinyRate;
 
             if (pokemonScriptable.canBeAltForm)
-                isAltForm.Value = Random.value < pokemonScriptable.variationProbability;
+            {
+                pokemonVariationID.Value =
+                    pokemonScriptable.spriteVariations.IndexOf(
+                        WeightedPokemonVariationSelector.GetRandomItem(pokemonScriptable.spriteVariations));
+                
+                isAltForm.Value = Random.value < pokemonScriptable.spriteVariations[pokemonVariationID.Value].variationProbability;
+            }
         }
-        
-        if(IsOwner) PokemonManager.instance.localPlayer.UpdatePokemonData(pokemonScriptable, true, false, isShiny.Value);
-        
+
         SpawnAnimation();
         
         animator = GetComponent<Animator>();
         pokemonSounds = GetComponent<PokemonSounds>();
-        
-        pokemonSprite.sprite = isAltForm.Value ? pokemonScriptable.pokemonSpriteVariation : pokemonScriptable.pokemonSprite;
+
+        pokemonSprite.sprite = pokemonScriptable.spriteVariations[pokemonVariationID.Value].pokemonSpriteVariation;
 
         if (isShiny.Value)
         {
-            pokemonSprite.sprite = isAltForm .Value? pokemonScriptable.pokemonSpriteShinyVariation : pokemonScriptable.pokemonSpriteShiny;
+            pokemonSprite.sprite =
+                pokemonScriptable.spriteVariations[pokemonVariationID.Value].pokemonSpriteShinyVariation;
             
             pokemonShinyParticle.gameObject.SetActive(true);
             pokemonLight.intensity = k_lightShiny;
@@ -116,7 +122,7 @@ public class Pokemon : NetworkBehaviour
                         Random.Range(pokemonScriptable.extensionMoveMinMax.x,
                             pokemonScriptable.extensionMoveMinMax.y);
         
-        var timeToMove = pokemonScriptable.timeToMove / 5f * Vector3.Distance(transform.position, posToMove);
+        var timeToMove = pokemonScriptable.SpeedByEnum(pokemonScriptable.pokemonSpeed) * Vector3.Distance(transform.position, posToMove);
         transform.DOMove(posToMove, timeToMove).SetEase(Ease.Linear);
         
         if (IsHost) lastDirectionX.Value = (posToMove - transform.position).normalized.x;

@@ -12,15 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14db7237d58e2384ea444572b203318b, type: 3}
   m_Name: 001
   m_EditorClassIdentifier: 
-  pokemonSprite: {fileID: 948953081, guid: a077de8cd455e3c42b26dc7e1819d317, type: 3}
-  pokemonSpriteVariation: {fileID: 0}
-  pokemonSpriteShiny: {fileID: 149619768, guid: a077de8cd455e3c42b26dc7e1819d317,
-    type: 3}
-  pokemonSpriteShinyVariation: {fileID: 0}
-  canBeAltForm: 0
-  variationProbability: 0
-  pokemonName: "Bon\xE9"
-  pokemonID: 0
+  spriteVariations:
+  - pokemonSpriteVariation: {fileID: -1682958504, guid: 83cde24b4c076714fb96e544babcfc29,
+      type: 3}
+    pokemonSpriteShinyVariation: {fileID: -2144656269, guid: 83cde24b4c076714fb96e544babcfc29,
+      type: 3}
+    variationProbability: 0.85
+  - pokemonSpriteVariation: {fileID: -1430307052, guid: 83cde24b4c076714fb96e544babcfc29,
+      type: 3}
+    pokemonSpriteShinyVariation: {fileID: 227012537, guid: 83cde24b4c076714fb96e544babcfc29,
+      type: 3}
+    variationProbability: 0.1
+  - pokemonSpriteVariation: {fileID: -524637691, guid: 83cde24b4c076714fb96e544babcfc29,
+      type: 3}
+    pokemonSpriteShinyVariation: {fileID: -1975069528, guid: 83cde24b4c076714fb96e544babcfc29,
+      type: 3}
+    variationProbability: 0.05
+  canBeAltForm: 1
+  pokemonName: Bulboudou
+  pokemonID: 1
   pokemonRarity: 0
-  timeToMove: 2
+  pokemonSpeed: 2
   extensionMoveMinMax: {x: 5, y: 10}

@@ -9,18 +9,16 @@ using UnityEngine;
 public class PlayerController : NetworkBehaviour
 {
     [SerializeField] private float groundDrag;
+    [SerializeField] private LayerMask groundMask;
     [SerializeField] private float walkSpeed;
     
-    [SerializeField] private CinemachineVirtualCamera vc;
+    public CinemachineVirtualCamera vc;
     [SerializeField] private AudioListener listener;
     
     [SerializeField] private Transform spriteTransform;
     
     [SerializeField] private EmoteWheel emoteWheel;
-    [SerializeField] private CanvasGroup pokedexGroup;
-    
-    [Header("Pokemon")] public List<PokemonPokedex> pokemonDatas = new List<PokemonPokedex>();
-    
+
     private Rigidbody _rb;
     private PlayerEmotes _playerEmotes;
     private Animator _animator;
@@ -28,7 +26,7 @@ public class PlayerController : NetworkBehaviour
     private Vector3 direction;
     private Vector3 lastDirection;
 
-    private bool pokedexOpenned;
+    private bool _isOnGround;
     
     // Start is called before the first frame update
     void Start()
@@ -43,8 +41,6 @@ public class PlayerController : NetworkBehaviour
         base.OnNetworkSpawn();
         SetupSelfCamera();
 
-        InitPokedex();
-        
         if (!IsHost) return;
         PokemonManager.instance.OnPlayerJoin();
     }
@@ -68,14 +64,18 @@ public class PlayerController : NetworkBehaviour
 
         EmoteManagement();
         AnimationManagement();
-
-        ManageOpenPokedex();
     }
     
     private void FixedUpdate()
     {
+        var _canWalkForward = Physics.Raycast(transform.position + new Vector3(0,1,0) + transform.forward * 2f + lastDirection, Vector3.down, 1.25f,
+            groundMask);
+        _isOnGround = Physics.Raycast(transform.position + new Vector3(0,1,0), Vector3.down, 1.25f, groundMask)
+            && _canWalkForward;
+
         _rb.drag = groundDrag;
-        _rb.AddForce(direction * walkSpeed, ForceMode.Impulse);
+        if(_canWalkForward) _rb.AddForce(direction * walkSpeed, ForceMode.Impulse);
+        _rb.AddForce(Vector3.down * 200f);
     }
 
     private void SetupDirection()
@@ -145,62 +145,11 @@ public class PlayerController : NetworkBehaviour
     
     #endregion
 
-    public void ManageOpenPokedex()
+    #if UNITY_EDITOR
+    private void OnDrawGizmos()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            pokedexOpenned = !pokedexOpenned;
-            
-            pokedexGroup.alpha = pokedexOpenned ? 1f : 0f;
-            pokedexGroup.interactable = pokedexOpenned;
-            pokedexGroup.blocksRaycasts = pokedexOpenned;
-        }
+        Gizmos.DrawRay(transform.position + new Vector3(0,1,0), Vector3.down * 1.25f);
+        Gizmos.DrawRay(transform.position + new Vector3(0,1,0) + transform.forward * 2f + lastDirection,  Vector3.down * 1.25f);
     }
-    
-    private void InitPokedex()
-    {
-        foreach (var pkmnSo in PokemonManager.instance.allPokemon)
-        {
-            pokemonDatas.Add(new PokemonPokedex(pkmnSo));
-        }
-    }
-
-    public void UpdatePokemonData(Pokemon_SO pkmn, bool incrementEnc, bool incrementCatch, bool isShiny)
-    {
-        foreach (var data in pokemonDatas)
-        {
-            if (pkmn == data.pokemonScriptable)
-            {
-                if (incrementEnc) data.encounters++;
-                if (incrementCatch) data.catches++;
-                
-                if(incrementEnc && isShiny) data.encountersShiny++;
-                if(incrementCatch && isShiny) data.catchesShiny++;
-
-                pokedexGroup.GetComponent<Pokedex>().RefreshAllBoxes();
-            }
-        }
-    }
-}
-
-
-[Serializable]
-public class PokemonPokedex
-{
-    public Pokemon_SO pokemonScriptable;
-    
-    public int encounters;
-    public int encountersVar;
-    public int encountersShiny;
-    public int encountersVarShiny;
-    
-    public int catches;
-    public int catchesVar;
-    public int catchesShiny;
-    public int catchesVarShiny;
-
-    public PokemonPokedex(Pokemon_SO so)
-    {
-        pokemonScriptable = so;
-    }
+    #endif
 }

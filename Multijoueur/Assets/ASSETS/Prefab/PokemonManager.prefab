@@ -71,15 +71,12 @@ MonoBehaviour:
   connectedPlayers:
     m_InternalValue: 0
   allPokemon:
-  - {fileID: 11400000, guid: 68fd714dacaa9ca49976c19e552d5371, type: 2}
-  - {fileID: 11400000, guid: a05f6d37a4767fa49ad18ac69afa94df, type: 2}
-  - {fileID: 11400000, guid: 5b3339a219f66234d908e6c138e0134b, type: 2}
-  - {fileID: 11400000, guid: fc2ce1b13c6ede94fa467dd57b9be324, type: 2}
-  - {fileID: 11400000, guid: b76400aaa162b854d9238ba3cedc16f7, type: 2}
-  - {fileID: 11400000, guid: f422cc2bab2cd004c8b3b68c9fc48564, type: 2}
-  - {fileID: 11400000, guid: 50ef09368bd4bff4da4b0c7cc233a7d0, type: 2}
-  - {fileID: 11400000, guid: f6951b8bf6a5c1640b66e0431a876a0d, type: 2}
-  - {fileID: 11400000, guid: cb50dcc265e6e874dbecaf5d2fdd0157, type: 2}
-  - {fileID: 11400000, guid: cb50dcc265e6e874dbecaf5d2fdd0157, type: 2}
+  - {fileID: 11400000, guid: dc66d3d85f2b0064a92a49333f779c5b, type: 2}
+  - {fileID: 11400000, guid: 9956f43a1ac47324d95b9059cdcfa348, type: 2}
+  - {fileID: 11400000, guid: b8be5ba27f5a0424d8a4190036c87d70, type: 2}
+  - {fileID: 11400000, guid: 30a4f90c73d931d42afae9619c8456a6, type: 2}
+  - {fileID: 11400000, guid: ec421f976ea98ec458ab23e7ab7f8934, type: 2}
+  - {fileID: 11400000, guid: 3e27eba9a554df647ae1e735583e673e, type: 2}
+  - {fileID: 11400000, guid: 9ab6c8bfd08f03640855adc85d214a46, type: 2}
   localPlayer: {fileID: 0}
-  shinyRate: 0.00390625
+  shinyRate: 0.05

@@ -1,13 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class PokemonSpawner : NetworkBehaviour
 {
-    [SerializeField] private int[] possiblePokemonIDs;
+    [SerializeField] private WeightedPokemonSpawn[] possibleSpawns;
+    
     [SerializeField] private float spawnRadius;
     [SerializeField] private float detectRadius;
     [SerializeField] private int maxPokemon;
@@ -53,7 +55,12 @@ public class PokemonSpawner : NetworkBehaviour
         instanceNetworkObject.Spawn();
     }
 
-    int GetRandomPokemonID() => possiblePokemonIDs[Random.Range(0, possiblePokemonIDs.Length)];
+    int GetRandomPokemonID()
+    {
+        Pokemon_SO pkmn = null;
+        pkmn = WeightedPokemonSpawnSelector.GetRandomItem(possibleSpawns.ToList());
+        return pkmn.pokemonID;
+    }
 
     public void DeSpawnPokemon(NetworkObject obj)
     {
@@ -63,12 +70,19 @@ public class PokemonSpawner : NetworkBehaviour
         obj.Despawn();
     }
     
+    
+    #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawWireCube(transform.position, Vector3.one * spawnRadius);
-
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireCube(transform.position, Vector3.one * detectRadius);
+        Helpers.DrawBoxCollider(Color.magenta, transform, new Vector3(spawnRadius, spawnRadius, spawnRadius), 0.1f);
+        Helpers.DrawBoxCollider(Color.cyan, transform, new Vector3(detectRadius, detectRadius, detectRadius), 0.05f);
     }
+    #endif
+}
+
+[Serializable]
+public class WeightedPokemonSpawn
+{
+    public Pokemon_SO pokémon;
+    public float weight;
 }

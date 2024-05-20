@@ -12,15 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14db7237d58e2384ea444572b203318b, type: 3}
   m_Name: 002
   m_EditorClassIdentifier: 
-  pokemonSprite: {fileID: -295150325, guid: 6b23d196958d1024cb52ff594b0ff638, type: 3}
-  pokemonSpriteVariation: {fileID: 0}
-  pokemonSpriteShiny: {fileID: 1706593590, guid: 6b23d196958d1024cb52ff594b0ff638,
-    type: 3}
-  pokemonSpriteShinyVariation: {fileID: 0}
-  canBeAltForm: 0
-  variationProbability: 0
-  pokemonName: Moumoufle
-  pokemonID: 1
-  pokemonRarity: 0
-  timeToMove: 2
+  spriteVariations:
+  - pokemonSpriteVariation: {fileID: -558175480, guid: 4d825faf7bb5c6b4fae486ee1b507ecc,
+      type: 3}
+    pokemonSpriteShinyVariation: {fileID: -5295623, guid: 4d825faf7bb5c6b4fae486ee1b507ecc,
+      type: 3}
+    variationProbability: 0.8
+  - pokemonSpriteVariation: {fileID: -1410442671, guid: 4d825faf7bb5c6b4fae486ee1b507ecc,
+      type: 3}
+    pokemonSpriteShinyVariation: {fileID: 2136867335, guid: 4d825faf7bb5c6b4fae486ee1b507ecc,
+      type: 3}
+    variationProbability: 0.2
+  canBeAltForm: 1
+  pokemonName: PopKorn
+  pokemonID: 2
+  pokemonRarity: 1
+  pokemonSpeed: 2
   extensionMoveMinMax: {x: 5, y: 10}

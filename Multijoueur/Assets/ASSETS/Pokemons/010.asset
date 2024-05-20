@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14db7237d58e2384ea444572b203318b, type: 3}
+  m_Name: 010
+  m_EditorClassIdentifier: 
+  spriteVariations:
+  - pokemonSpriteVariation: {fileID: 845559779, guid: ba6eb84a154bc7a4fa8ce0505a9ffb7c,
+      type: 3}
+    pokemonSpriteShinyVariation: {fileID: -339208035, guid: ba6eb84a154bc7a4fa8ce0505a9ffb7c,
+      type: 3}
+    variationProbability: 1
+  canBeAltForm: 0
+  pokemonName: Merlon
+  pokemonID: 10
+  pokemonRarity: 2
+  pokemonSpeed: 1
+  extensionMoveMinMax: {x: 5, y: 10}

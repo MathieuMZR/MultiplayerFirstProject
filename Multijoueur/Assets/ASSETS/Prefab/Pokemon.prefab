@@ -109,6 +109,8 @@ MonoBehaviour:
   pokemonScriptable: {fileID: 0}
   pokemonID:
     m_InternalValue: 0
+  pokemonVariationID:
+    m_InternalValue: 0
   isShiny:
     m_InternalValue: 0
   isAltForm:
@@ -2061,7 +2063,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: 132b16146e59c1646a12b9f52550281f, type: 3}
+    - sprite: {fileID: 21300000, guid: 799bb3c9c35fe634e8b7c04ce35b1402, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -5478,7 +5480,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 948953081, guid: a077de8cd455e3c42b26dc7e1819d317, type: 3}
+  m_Sprite: {fileID: -1682958504, guid: 83cde24b4c076714fb96e544babcfc29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11808,10 +11810,10 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   RotationModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -11864,7 +11866,7 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -11917,9 +11919,9 @@ ParticleSystem:
         m_RotationOrder: 4
     curve:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0.7853982
-      minScalar: 0.7853982
+      minMaxState: 3
+      scalar: 0.7853981
+      minScalar: -0.7853981
       maxCurve:
         serializedVersion: 2
         m_Curve:

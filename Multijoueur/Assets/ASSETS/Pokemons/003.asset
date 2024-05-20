@@ -12,17 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14db7237d58e2384ea444572b203318b, type: 3}
   m_Name: 003
   m_EditorClassIdentifier: 
-  pokemonSprite: {fileID: -77185306, guid: 14af4904aac08d543b1196d64e1f1f41, type: 3}
-  pokemonSpriteVariation: {fileID: -304883511, guid: 14af4904aac08d543b1196d64e1f1f41,
-    type: 3}
-  pokemonSpriteShiny: {fileID: 2101965986, guid: 14af4904aac08d543b1196d64e1f1f41,
-    type: 3}
-  pokemonSpriteShinyVariation: {fileID: -1631815120, guid: 14af4904aac08d543b1196d64e1f1f41,
-    type: 3}
-  canBeAltForm: 1
-  variationProbability: 0.2
-  pokemonName: Crayomine
-  pokemonID: 2
+  spriteVariations:
+  - pokemonSpriteVariation: {fileID: 2119378195, guid: 61e2a29c29ea843419090653abcc5742,
+      type: 3}
+    pokemonSpriteShinyVariation: {fileID: 32226865, guid: 61e2a29c29ea843419090653abcc5742,
+      type: 3}
+    variationProbability: 1
+  canBeAltForm: 0
+  pokemonName: Nunuphare
+  pokemonID: 3
   pokemonRarity: 0
-  timeToMove: 2
+  pokemonSpeed: 1
   extensionMoveMinMax: {x: 5, y: 10}

@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14db7237d58e2384ea444572b203318b, type: 3}
   m_Name: 005
   m_EditorClassIdentifier: 
-  pokemonSprite: {fileID: -46941566, guid: 4e20f22448a6fbe40b1d16c70dc3cb3b, type: 3}
-  pokemonSpriteVariation: {fileID: 0}
-  pokemonSpriteShiny: {fileID: 944128901, guid: 4e20f22448a6fbe40b1d16c70dc3cb3b,
-    type: 3}
-  pokemonSpriteShinyVariation: {fileID: 0}
+  spriteVariations:
+  - pokemonSpriteVariation: {fileID: 637397352, guid: bc7880cc36a42b4408514b9332ead75a,
+      type: 3}
+    pokemonSpriteShinyVariation: {fileID: 1617101979, guid: bc7880cc36a42b4408514b9332ead75a,
+      type: 3}
+    variationProbability: 1
   canBeAltForm: 0
-  variationProbability: 0
-  pokemonName: Coola
-  pokemonID: 4
+  pokemonName: Pipimento
+  pokemonID: 5
   pokemonRarity: 0
-  timeToMove: 2
+  pokemonSpeed: 1
   extensionMoveMinMax: {x: 5, y: 10}
