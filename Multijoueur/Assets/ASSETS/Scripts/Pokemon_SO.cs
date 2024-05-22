@@ -15,11 +15,13 @@ public class Pokemon_SO : ScriptableObject
     public string pokemonName;
     public int pokemonID;
     public PokemonRarity pokemonRarity;
+    public PokemonType pokemonType;
     
     public PokemonSpeed pokemonSpeed;
     public Vector2 extensionMoveMinMax;
 
     public enum PokemonRarity { Common, Uncommon, Rare, Epic, Legendary }
+    public enum PokemonType { Plant, Food, Abstract, Mythical }
     public enum PokemonSpeed { VerySlow, Slow, Normal, Fast, VeryFast }
 
     public float SpeedByEnum(PokemonSpeed ps)

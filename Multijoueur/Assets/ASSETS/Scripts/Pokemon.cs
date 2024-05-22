@@ -11,6 +11,8 @@ public class Pokemon : NetworkBehaviour
 {
     [Header("Infos")]
     public Pokemon_SO pokemonScriptable;
+    public TransmitPokemonData pkmnData;
+    
     public NetworkVariable<int> pokemonID = new NetworkVariable<int>();
     public NetworkVariable<int> pokemonVariationID = new NetworkVariable<int>();
 
@@ -101,6 +103,9 @@ public class Pokemon : NetworkBehaviour
         }
         
         pokemonSounds.AppearSound(isShiny.Value);
+
+        pkmnData = new TransmitPokemonData(pokemonScriptable, 
+            pokemonID.Value, pokemonSprite.sprite, isShiny.Value, isAltForm.Value); 
     }
 
     void SpawnAnimation()
@@ -151,5 +156,43 @@ public class Pokemon : NetworkBehaviour
     {
         yield return new WaitForSeconds(15f);
         spawnerParent.DeSpawnPokemon(gameObject.GetComponent<NetworkObject>());
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            var p = other.GetComponentInParent<PlayerController>();
+            
+            if (p.IsOwner)
+            {
+                BattleManager.Instance.StartBattle(pkmnData);
+                p.EnableInputs(false);
+                
+                StopAllCoroutines();
+                
+                Destroy(gameObject, 2f);
+            }
+        }
+    }
+}
+
+public class TransmitPokemonData
+{
+    public Pokemon_SO pkmnSo;
+    public int ID;
+    
+    public Sprite sprite;
+    
+    public bool isShiny;
+    public bool isAltForm;
+
+    public TransmitPokemonData(Pokemon_SO so, int id, Sprite sprite, bool shiny, bool altForm)
+    {
+        pkmnSo = so;
+        ID = id;
+        this.sprite = sprite;
+        isShiny = shiny;
+        isAltForm = altForm;
     }
 }

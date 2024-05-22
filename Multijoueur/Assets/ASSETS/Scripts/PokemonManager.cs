@@ -18,8 +18,8 @@ public class PokemonManager : NetworkBehaviour
     public float shinyRate = 0.00390625f;
     
     public static PokemonManager instance;
-
-    public Action OnPlayerJoined;
+    
+    public Action OnLocalPlayerJoined;
 
     private void Awake()
     {
@@ -29,17 +29,20 @@ public class PokemonManager : NetworkBehaviour
 
     public void OnPlayerJoin()
     {
-        connectedPlayers.Value++;
+        if (localPlayer.IsHost)
+        {
+            connectedPlayers.Value++;
+        }
         
-        localPlayer = NetworkManager.Singleton.ConnectedClients[NetworkManager.Singleton.LocalClientId]
-            .PlayerObject.GetComponent<PlayerController>();
-        
-        OnPlayerJoined.Invoke();
+        if(localPlayer.IsOwner) OnLocalPlayerJoined.Invoke();
     }
     
     public void OnPlayerQuit()
     {
-        connectedPlayers.Value--;
+        if (localPlayer.IsHost)
+        {
+            connectedPlayers.Value--;
+        }
     }
 
     public Pokemon_SO FindPokemonFromID(int ID)

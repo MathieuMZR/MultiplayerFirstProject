@@ -21,7 +21,7 @@ public class TriggerCamera : MonoBehaviour
 
     private void Start()
     {
-        PokemonManager.instance.OnPlayerJoined += () =>
+        PokemonManager.instance.OnLocalPlayerJoined += () =>
         {
             cam = PokemonManager.instance.localPlayer.vc;
             _baseRotation = cam.transform.rotation.eulerAngles;

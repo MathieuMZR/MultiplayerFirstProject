@@ -5,15 +5,18 @@ using DG.Tweening;
 using Unity.Netcode;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerController : NetworkBehaviour
 {
+    public bool allowInputs;
+    
     [SerializeField] private float groundDrag;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float walkSpeed;
     
     public CinemachineVirtualCamera vc;
-    [SerializeField] private AudioListener listener;
+    public Camera listener;
     
     [SerializeField] private Transform spriteTransform;
     
@@ -41,7 +44,11 @@ public class PlayerController : NetworkBehaviour
         base.OnNetworkSpawn();
         SetupSelfCamera();
 
-        if (!IsHost) return;
+        if (IsOwner)
+        {
+            PokemonManager.instance.localPlayer = this;
+        }
+
         PokemonManager.instance.OnPlayerJoin();
     }
 
@@ -53,17 +60,27 @@ public class PlayerController : NetworkBehaviour
         PokemonManager.instance.OnPlayerQuit();
     }
 
+    public void EnableInputs(bool enable) => allowInputs = enable;
+
     // Update is called once per frame
     void Update()
     {
         if (!IsOwner) return;
-
+        
+        AnimationManagement();
+        
+        if (!allowInputs)
+        {
+            if(_rb.velocity.magnitude > 0f) _rb.velocity = Vector3.zero;
+            if(Mathf.Abs(direction.magnitude) > 0f) direction = Vector3.zero;
+            return;
+        }
+        
         SpriteRotation();
         
         SetupDirection();
 
         EmoteManagement();
-        AnimationManagement();
     }
     
     private void FixedUpdate()

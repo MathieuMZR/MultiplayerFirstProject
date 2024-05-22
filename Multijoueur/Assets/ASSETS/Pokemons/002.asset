@@ -27,5 +27,6 @@ MonoBehaviour:
   pokemonName: PopKorn
   pokemonID: 2
   pokemonRarity: 1
+  pokemonType: 1
   pokemonSpeed: 2
   extensionMoveMinMax: {x: 5, y: 10}
