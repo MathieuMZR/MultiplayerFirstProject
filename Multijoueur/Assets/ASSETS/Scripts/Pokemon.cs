@@ -104,8 +104,8 @@ public class Pokemon : NetworkBehaviour
         
         pokemonSounds.AppearSound(isShiny.Value);
 
-        pkmnData = new TransmitPokemonData(pokemonScriptable, 
-            pokemonID.Value, pokemonSprite.sprite, isShiny.Value, isAltForm.Value); 
+        pkmnData = new TransmitPokemonData(pokemonScriptable, pokemonSprite.sprite, isShiny.Value, isAltForm.Value, 
+            pokemonScriptable.spriteVariations[pokemonVariationID.Value]); 
     }
 
     void SpawnAnimation()
@@ -180,19 +180,20 @@ public class Pokemon : NetworkBehaviour
 public class TransmitPokemonData
 {
     public Pokemon_SO pkmnSo;
-    public int ID;
-    
+
     public Sprite sprite;
     
     public bool isShiny;
     public bool isAltForm;
 
-    public TransmitPokemonData(Pokemon_SO so, int id, Sprite sprite, bool shiny, bool altForm)
+    public PokemonVariation var;
+
+    public TransmitPokemonData(Pokemon_SO so, Sprite sprite, bool shiny, bool altForm, PokemonVariation var)
     {
         pkmnSo = so;
-        ID = id;
         this.sprite = sprite;
         isShiny = shiny;
         isAltForm = altForm;
+        this.var = var;
     }
 }

@@ -21,7 +21,7 @@ public class Pokemon_SO : ScriptableObject
     public Vector2 extensionMoveMinMax;
 
     public enum PokemonRarity { Common, Uncommon, Rare, Epic, Legendary }
-    public enum PokemonType { Plant, Food, Abstract, Mythical }
+    public enum PokemonType { Plante, Nourriture, Abstrait, Mythique }
     public enum PokemonSpeed { VerySlow, Slow, Normal, Fast, VeryFast }
 
     public float SpeedByEnum(PokemonSpeed ps)
@@ -57,4 +57,5 @@ public class PokemonVariation
     public Sprite pokemonSpriteVariation;
     public Sprite pokemonSpriteShinyVariation;
     public float variationProbability;
+    public string pokemonVariationName;
 }

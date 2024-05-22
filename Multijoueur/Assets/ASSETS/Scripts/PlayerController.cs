@@ -60,7 +60,11 @@ public class PlayerController : NetworkBehaviour
         PokemonManager.instance.OnPlayerQuit();
     }
 
-    public void EnableInputs(bool enable) => allowInputs = enable;
+    public void EnableInputs(bool enable)
+    {
+        allowInputs = enable;
+        GetComponent<Collider>().enabled = enable;
+    }
 
     // Update is called once per frame
     void Update()

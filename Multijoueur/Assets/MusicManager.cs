@@ -24,8 +24,8 @@ public class MusicManager : GenericSingletonClass<MusicManager>
         grassLandMusic.Play();
         battleMusic.Stop();
         
-        grassLandMusic.DOFade(baseVolumes[0], 0.3f);
-        battleMusic.DOFade(0, 0.3f);
+        grassLandMusic.DOFade(baseVolumes[0], 0.05f);
+        battleMusic.DOFade(0, 0.05f);
     }
     
     public void BattleMusic()
@@ -33,7 +33,7 @@ public class MusicManager : GenericSingletonClass<MusicManager>
         battleMusic.Play();
         grassLandMusic.Stop();
         
-        battleMusic.DOFade(baseVolumes[1], 0.3f);
-        grassLandMusic.DOFade(0, 0.3f);
+        battleMusic.DOFade(baseVolumes[1], 0.05f);
+        grassLandMusic.DOFade(0, 0.05f);
     }
 }

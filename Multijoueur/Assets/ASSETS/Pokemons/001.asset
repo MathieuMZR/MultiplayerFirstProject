@@ -18,16 +18,19 @@ MonoBehaviour:
     pokemonSpriteShinyVariation: {fileID: -2144656269, guid: 83cde24b4c076714fb96e544babcfc29,
       type: 3}
     variationProbability: 0.85
+    pokemonVariationName: 
   - pokemonSpriteVariation: {fileID: -1430307052, guid: 83cde24b4c076714fb96e544babcfc29,
       type: 3}
     pokemonSpriteShinyVariation: {fileID: 227012537, guid: 83cde24b4c076714fb96e544babcfc29,
       type: 3}
     variationProbability: 0.1
+    pokemonVariationName: Triste
   - pokemonSpriteVariation: {fileID: -524637691, guid: 83cde24b4c076714fb96e544babcfc29,
       type: 3}
     pokemonSpriteShinyVariation: {fileID: -1975069528, guid: 83cde24b4c076714fb96e544babcfc29,
       type: 3}
     variationProbability: 0.05
+    pokemonVariationName: "Col\xE8re"
   canBeAltForm: 1
   pokemonName: Bulboudou
   pokemonID: 1

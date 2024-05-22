@@ -110,6 +110,40 @@ MonoBehaviour:
   tmp: {fileID: 6021332750508747030}
   textSource: {fileID: 6404815602114901971}
   popSource: {fileID: 5988066865202961251}
+  unpopSource: {fileID: 5988066865202961251}
+  curveAnim:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 1.0225812
+      outSlope: 1.0225812
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07301217
+      outWeight: 0.21245825
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!82 &6404815602114901971
 AudioSource:
   m_ObjectHideFlags: 0
@@ -367,10 +401,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: AAAAA
+  m_text: "Un text ici pour voir \xE0 quoi \xE7a ressemble, et c'est tr\xE8s cool."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e2b415cd7677c234d97e716f478682fc, type: 2}
-  m_sharedMaterial: {fileID: -7017792079298092174, guid: e2b415cd7677c234d97e716f478682fc,
+  m_fontAsset: {fileID: 11400000, guid: ef50e10cb5fc4ca4b93a7d85051419b1, type: 2}
+  m_sharedMaterial: {fileID: -5974083923249508957, guid: ef50e10cb5fc4ca4b93a7d85051419b1,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -395,7 +429,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 25.2
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1

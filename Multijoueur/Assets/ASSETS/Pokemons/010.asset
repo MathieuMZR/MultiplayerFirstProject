@@ -18,9 +18,11 @@ MonoBehaviour:
     pokemonSpriteShinyVariation: {fileID: -339208035, guid: ba6eb84a154bc7a4fa8ce0505a9ffb7c,
       type: 3}
     variationProbability: 1
+    pokemonVariationName: 
   canBeAltForm: 0
   pokemonName: Merlon
-  pokemonID: 10
+  pokemonID: 6
   pokemonRarity: 2
+  pokemonType: 0
   pokemonSpeed: 1
   extensionMoveMinMax: {x: 5, y: 10}
