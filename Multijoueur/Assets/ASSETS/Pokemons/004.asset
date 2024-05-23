@@ -18,19 +18,23 @@ MonoBehaviour:
     pokemonSpriteShinyVariation: {fileID: 527975989, guid: d0332cee67311964d9af487375e9ded2,
       type: 3}
     variationProbability: 0.8
+    pokemonVariationName: 
   - pokemonSpriteVariation: {fileID: 492746782, guid: d0332cee67311964d9af487375e9ded2,
       type: 3}
     pokemonSpriteShinyVariation: {fileID: 1362111423, guid: d0332cee67311964d9af487375e9ded2,
       type: 3}
     variationProbability: 0.18
+    pokemonVariationName: Orage
   - pokemonSpriteVariation: {fileID: 1790445223, guid: d0332cee67311964d9af487375e9ded2,
       type: 3}
     pokemonSpriteShinyVariation: {fileID: 1395067690, guid: d0332cee67311964d9af487375e9ded2,
       type: 3}
     variationProbability: 0.02
+    pokemonVariationName: Arc-en-Ciel
   canBeAltForm: 1
   pokemonName: Somnolaine
   pokemonID: 4
   pokemonRarity: 2
+  pokemonType: 2
   pokemonSpeed: 1
   extensionMoveMinMax: {x: 5, y: 10}

@@ -170,10 +170,22 @@ public class Pokemon : NetworkBehaviour
                 p.EnableInputs(false);
                 
                 StopAllCoroutines();
-                
-                Destroy(gameObject, 2f);
+
+                StartCoroutine(nameof(DespawnDelay));
             }
         }
+    }
+
+    private IEnumerator DespawnDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy_Rpc();
+    }
+
+    [Rpc(SendTo.Everyone)]
+    private void Destroy_Rpc()
+    {
+        GetComponent<NetworkObject>().Despawn();
     }
 }
 

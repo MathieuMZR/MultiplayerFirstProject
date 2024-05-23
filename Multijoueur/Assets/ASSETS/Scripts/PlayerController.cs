@@ -89,13 +89,10 @@ public class PlayerController : NetworkBehaviour
     
     private void FixedUpdate()
     {
-        var _canWalkForward = Physics.Raycast(transform.position + new Vector3(0,1,0) + transform.forward * 2f + lastDirection, Vector3.down, 1.25f,
-            groundMask);
-        _isOnGround = Physics.Raycast(transform.position + new Vector3(0,1,0), Vector3.down, 1.25f, groundMask)
-            && _canWalkForward;
+        _isOnGround = Physics.Raycast(transform.position + new Vector3(0,1,0), Vector3.down, 1.25f, groundMask);
 
         _rb.drag = groundDrag;
-        if(_canWalkForward) _rb.AddForce(direction * walkSpeed, ForceMode.Impulse);
+        _rb.AddForce(direction * walkSpeed, ForceMode.Impulse);
         _rb.AddForce(Vector3.down * 200f);
     }
 

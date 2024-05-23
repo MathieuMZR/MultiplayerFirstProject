@@ -18,11 +18,13 @@ MonoBehaviour:
     pokemonSpriteShinyVariation: {fileID: -5295623, guid: 4d825faf7bb5c6b4fae486ee1b507ecc,
       type: 3}
     variationProbability: 0.8
+    pokemonVariationName: 
   - pokemonSpriteVariation: {fileID: -1410442671, guid: 4d825faf7bb5c6b4fae486ee1b507ecc,
       type: 3}
     pokemonSpriteShinyVariation: {fileID: 2136867335, guid: 4d825faf7bb5c6b4fae486ee1b507ecc,
       type: 3}
     variationProbability: 0.2
+    pokemonVariationName: "\xC9clat\xE9e"
   canBeAltForm: 1
   pokemonName: PopKorn
   pokemonID: 2
