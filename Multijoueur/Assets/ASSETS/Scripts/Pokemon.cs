@@ -162,7 +162,16 @@ public class Pokemon : NetworkBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            var p = other.GetComponentInParent<PlayerController>();
+            var p = new PlayerController();
+            
+            if (other.GetComponent<PlayerController>() == PokemonManager.instance.localPlayer)
+            {
+                p = PokemonManager.instance.localPlayer;
+            }
+            else
+            {
+                return;
+            }
             
             if (p.IsOwner)
             {
