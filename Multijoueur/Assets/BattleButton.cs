@@ -23,7 +23,6 @@ public class BattleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private RectTransform rt;
     private RectTransform rtHint;
     
-    // Start is called before the first frame update
     void Start()
     {
         rt = GetComponent<RectTransform>();
