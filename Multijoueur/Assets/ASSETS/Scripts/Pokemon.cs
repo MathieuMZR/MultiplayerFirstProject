@@ -162,25 +162,22 @@ public class Pokemon : NetworkBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            var p = new PlayerController();
+            var p = other.GetComponent<PlayerController>();
+
+            if (!p.IsOwner) return;
             
-            if (other.GetComponent<PlayerController>() == PokemonManager.instance.localPlayer)
+            if (p == PokemonManager.instance.localPlayer)
             {
-                p = PokemonManager.instance.localPlayer;
+                BattleManager.Instance.StartBattle(pkmnData);
+                p.EnableInputs(false);
+            
+                StopAllCoroutines();
+
+                StartCoroutine(nameof(DespawnDelay));
             }
             else
             {
                 return;
-            }
-            
-            if (p.IsOwner)
-            {
-                BattleManager.Instance.StartBattle(pkmnData);
-                p.EnableInputs(false);
-                
-                StopAllCoroutines();
-
-                StartCoroutine(nameof(DespawnDelay));
             }
         }
     }
@@ -191,13 +188,14 @@ public class Pokemon : NetworkBehaviour
         Destroy_Rpc();
     }
 
-    [Rpc(SendTo.Everyone)]
+    [Rpc(SendTo.Server)]
     private void Destroy_Rpc()
     {
         GetComponent<NetworkObject>().Despawn();
     }
 }
 
+[Serializable]
 public class TransmitPokemonData
 {
     public Pokemon_SO pkmnSo;

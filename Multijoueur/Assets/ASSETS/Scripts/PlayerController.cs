@@ -44,20 +44,14 @@ public class PlayerController : NetworkBehaviour
         base.OnNetworkSpawn();
         SetupSelfCamera();
 
-        if (IsOwner)
-        {
-            PokemonManager.instance.localPlayer = this;
-        }
-
-        PokemonManager.instance.OnPlayerJoin();
+        PokemonManager.instance.OnPlayerJoin(this);
     }
 
     public override void OnNetworkDespawn()
     {
         base.OnNetworkDespawn();
         
-        if (!IsHost) return;
-        PokemonManager.instance.OnPlayerQuit();
+        PokemonManager.instance.OnPlayerQuit(this);
     }
 
     public void EnableInputs(bool enable)

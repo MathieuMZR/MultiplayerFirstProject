@@ -27,19 +27,23 @@ public class PokemonManager : NetworkBehaviour
         else instance = this;
     }
 
-    public void OnPlayerJoin()
+    public void OnPlayerJoin(PlayerController p)
     {
-        if (localPlayer.IsHost)
+        if (p.IsHost)
         {
             connectedPlayers.Value++;
         }
         
-        if(localPlayer.IsOwner) OnLocalPlayerJoined.Invoke();
+        if (p.IsLocalPlayer)
+        {
+            localPlayer = p;
+            OnLocalPlayerJoined.Invoke();
+        }
     }
     
-    public void OnPlayerQuit()
+    public void OnPlayerQuit(PlayerController p)
     {
-        if (localPlayer.IsHost)
+        if (p.IsHost)
         {
             connectedPlayers.Value--;
         }
