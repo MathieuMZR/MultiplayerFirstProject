@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14db7237d58e2384ea444572b203318b, type: 3}
+  m_Name: 007
+  m_EditorClassIdentifier: 
+  spriteVariations:
+  - pokemonSpriteVariation: {fileID: 4461596, guid: 88439f7695ce8ea4b8a9af922cac3e59,
+      type: 3}
+    pokemonSpriteShinyVariation: {fileID: -1593002878, guid: 88439f7695ce8ea4b8a9af922cac3e59,
+      type: 3}
+    variationProbability: 1
+    pokemonVariationName: 
+  canBeAltForm: 0
+  pokemonName: Glassalo
+  pokemonID: 7
+  pokemonRarity: 1
+  pokemonType: 1
+  pokemonSpeed: 3

@@ -930,7 +930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2618649688
+  GlobalObjectIdHash: 3163725739
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -956,7 +956,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  walkSpeed: 6
+  walkSpeed: 7.5
   vc: {fileID: 7196505098199816835}
   listener: {fileID: 2711526267461721286}
   spriteTransform: {fileID: 5233117855769780433}

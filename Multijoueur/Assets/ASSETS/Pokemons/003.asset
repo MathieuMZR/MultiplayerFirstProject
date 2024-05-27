@@ -18,9 +18,11 @@ MonoBehaviour:
     pokemonSpriteShinyVariation: {fileID: 32226865, guid: 61e2a29c29ea843419090653abcc5742,
       type: 3}
     variationProbability: 1
+    pokemonVariationName: 
   canBeAltForm: 0
   pokemonName: Nunuphare
   pokemonID: 3
-  pokemonRarity: 0
+  pokemonRarity: 2
+  pokemonType: 0
   pokemonSpeed: 1
   extensionMoveMinMax: {x: 5, y: 10}

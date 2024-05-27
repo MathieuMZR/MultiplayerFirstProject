@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14db7237d58e2384ea444572b203318b, type: 3}
+  m_Name: 006
+  m_EditorClassIdentifier: 
+  spriteVariations:
+  - pokemonSpriteVariation: {fileID: -783054321, guid: d0332cee67311964d9af487375e9ded2,
+      type: 3}
+    pokemonSpriteShinyVariation: {fileID: 527975989, guid: d0332cee67311964d9af487375e9ded2,
+      type: 3}
+    variationProbability: 0.8
+    pokemonVariationName: 
+  - pokemonSpriteVariation: {fileID: 492746782, guid: d0332cee67311964d9af487375e9ded2,
+      type: 3}
+    pokemonSpriteShinyVariation: {fileID: 1362111423, guid: d0332cee67311964d9af487375e9ded2,
+      type: 3}
+    variationProbability: 0.18
+    pokemonVariationName: Orage
+  - pokemonSpriteVariation: {fileID: 1790445223, guid: d0332cee67311964d9af487375e9ded2,
+      type: 3}
+    pokemonSpriteShinyVariation: {fileID: 1395067690, guid: d0332cee67311964d9af487375e9ded2,
+      type: 3}
+    variationProbability: 0.02
+    pokemonVariationName: Arc-en-Ciel
+  canBeAltForm: 1
+  pokemonName: Somnolaine
+  pokemonID: 6
+  pokemonRarity: 0
+  pokemonType: 2
+  pokemonSpeed: 1
+  extensionMoveMinMax: {x: 5, y: 10}

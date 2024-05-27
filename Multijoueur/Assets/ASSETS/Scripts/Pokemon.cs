@@ -121,12 +121,11 @@ public class Pokemon : NetworkBehaviour
     IEnumerator MoveRoutine()
     {
         yield return new WaitForSeconds(1.5f);
-        
-        var posToMove = spawnerParent.transform.position +
-                        new Vector3(Random.insideUnitCircle.x, 0, Random.insideUnitCircle.y) *
-                        Random.Range(pokemonScriptable.extensionMoveMinMax.x,
-                            pokemonScriptable.extensionMoveMinMax.y);
-        
+
+        var posToMove = spawnerParent.transform.position + new Vector3(
+            Random.Range(-spawnerParent.behaviorRadius, spawnerParent.behaviorRadius) / 2f, 0, 
+            Random.Range(-spawnerParent.behaviorRadius, spawnerParent.behaviorRadius) / 2f);
+
         var timeToMove = pokemonScriptable.SpeedByEnum(pokemonScriptable.pokemonSpeed) * Vector3.Distance(transform.position, posToMove);
         transform.DOMove(posToMove, timeToMove).SetEase(Ease.Linear);
         

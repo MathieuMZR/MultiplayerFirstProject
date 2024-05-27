@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2236730649
+  GlobalObjectIdHash: 3009033542
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -75,8 +75,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9956f43a1ac47324d95b9059cdcfa348, type: 2}
   - {fileID: 11400000, guid: b8be5ba27f5a0424d8a4190036c87d70, type: 2}
   - {fileID: 11400000, guid: 30a4f90c73d931d42afae9619c8456a6, type: 2}
-  - {fileID: 11400000, guid: ec421f976ea98ec458ab23e7ab7f8934, type: 2}
   - {fileID: 11400000, guid: 3e27eba9a554df647ae1e735583e673e, type: 2}
   - {fileID: 11400000, guid: 9ab6c8bfd08f03640855adc85d214a46, type: 2}
+  - {fileID: 11400000, guid: ec421f976ea98ec458ab23e7ab7f8934, type: 2}
+  - {fileID: 11400000, guid: b93908fd7db17dd4e83c8aafed354ae5, type: 2}
   localPlayer: {fileID: 0}
   shinyRate: 0.05
