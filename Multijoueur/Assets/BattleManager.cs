@@ -44,6 +44,8 @@ public class BattleManager : GenericSingletonClass<BattleManager>
     {
         lastPkmn = encounterPkmn;
         
+        Debug.Log("Battle Started");
+        
         _animator.SetTrigger("StartBattle");
         MusicManager.Instance.BattleMusic();
         
@@ -97,5 +99,11 @@ public class BattleManager : GenericSingletonClass<BattleManager>
     {
         //Need to be between 0 and 500
         FadeAmount = fadeFloatRef.transform.localPosition.x;
+    }
+
+    
+    public void Test()
+    {
+        Debug.Log("Animation Event");
     }
 }

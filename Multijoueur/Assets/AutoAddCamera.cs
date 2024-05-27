@@ -12,7 +12,7 @@ public class AutoAddCamera : MonoBehaviour
         {
             if (!PokemonManager.instance.localPlayer.IsOwner) return;
             GetComponent<Canvas>().worldCamera = PokemonManager.instance.localPlayer.listener;
-            GetComponent<Canvas>().planeDistance = 1f;
+            GetComponent<Canvas>().planeDistance = 1.2f;
         };
     }
 }

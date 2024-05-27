@@ -164,6 +164,7 @@ public class Pokemon : NetworkBehaviour
         {
             var p = other.GetComponent<PlayerController>();
 
+            Debug.Log(p.IsOwner);
             if (!p.IsOwner) return;
             
             if (p == PokemonManager.instance.localPlayer)
