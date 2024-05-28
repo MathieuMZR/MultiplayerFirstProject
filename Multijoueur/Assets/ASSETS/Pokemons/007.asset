@@ -17,11 +17,17 @@ MonoBehaviour:
       type: 3}
     pokemonSpriteShinyVariation: {fileID: -1593002878, guid: 88439f7695ce8ea4b8a9af922cac3e59,
       type: 3}
-    variationProbability: 1
+    variationProbability: 0.8
     pokemonVariationName: 
-  canBeAltForm: 0
+  - pokemonSpriteVariation: {fileID: -703816608, guid: 88439f7695ce8ea4b8a9af922cac3e59,
+      type: 3}
+    pokemonSpriteShinyVariation: {fileID: -1928412223, guid: 88439f7695ce8ea4b8a9af922cac3e59,
+      type: 3}
+    variationProbability: 0.2
+    pokemonVariationName: Mixte
+  canBeAltForm: 1
   pokemonName: Glassalo
   pokemonID: 7
   pokemonRarity: 1
   pokemonType: 1
-  pokemonSpeed: 3
+  pokemonSpeed: 2

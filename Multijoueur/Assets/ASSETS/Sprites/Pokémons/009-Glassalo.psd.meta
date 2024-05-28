@@ -113,9 +113,9 @@ TextureImporter:
       name: 009-Glassalo_0
       rect:
         serializedVersion: 2
-        x: 174
+        x: 189
         y: 1548
-        width: 169
+        width: 198
         height: 351
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -134,9 +134,9 @@ TextureImporter:
       name: 009-Glassalo_1
       rect:
         serializedVersion: 2
-        x: 685
+        x: 650
         y: 1548
-        width: 169
+        width: 198
         height: 351
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -147,6 +147,48 @@ TextureImporter:
       bones: []
       spriteID: c2fa462383ad3db41a1d1ff13992a1b5
       internalID: -1593002878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 009-Glassalo_2
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 1009
+        width: 198
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abf3f14a625bc764ca4735768a7cdfb3
+      internalID: -703816608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 009-Glassalo_3
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 1009
+        width: 198
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d20b7229f492d714c8887ab8b9e350f8
+      internalID: -1928412223
       vertices: []
       indices: 
       edges: []
@@ -164,6 +206,8 @@ TextureImporter:
     nameFileIdTable:
       009-Glassalo_0: 4461596
       009-Glassalo_1: -1593002878
+      009-Glassalo_2: -703816608
+      009-Glassalo_3: -1928412223
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

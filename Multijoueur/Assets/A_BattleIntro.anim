@@ -29,7 +29,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.6666667
-        value: {x: 100, y: 0, z: 0}
+        value: {x: 25, y: 0, z: 0}
         inSlope: {x: 1.8951869, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -38,13 +38,13 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1.6666666
-        value: {x: 100, y: 0, z: 0}
+        value: {x: 25, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: -493.79166, y: 0, z: 0}
+        outSlope: {x: 0.3181011, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.13018782, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 1, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 2.3333333
         value: {x: 0, y: 0, z: 0}
@@ -305,9 +305,39 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: BattleCanvas/Button
+    path: BattleCanvas/CatchButton
     classID: 114
     script: {fileID: 11500000, guid: 124aca3c15fa95d43bbc0c66dc9f7e3a, type: 3}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 5.5
+        value: -200
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 6.3333335
+        value: 50
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_AnchoredPosition.y
+    path: BattleCanvas/CatchButton
+    classID: 224
+    script: {fileID: 0}
     flags: 0
   - serializedVersion: 2
     curve:
@@ -335,7 +365,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: BattleCanvas/Button_1
+    path: BattleCanvas/FleeButton
     classID: 114
     script: {fileID: 11500000, guid: 124aca3c15fa95d43bbc0c66dc9f7e3a, type: 3}
     flags: 0
@@ -365,7 +395,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: BattleCanvas/Button_1
+    path: BattleCanvas/FleeButton
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -374,29 +404,29 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 5.5
-        value: -200
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0
       - serializedVersion: 3
-        time: 6.3333335
-        value: 50
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        time: 1.6833333
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_AnchoredPosition.y
-    path: BattleCanvas/Button
-    classID: 224
+    attribute: m_IsActive
+    path: LDScene
+    classID: 1
     script: {fileID: 0}
     flags: 0
   m_PPtrCurves: []
@@ -471,7 +501,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1852608972
+      path: 3071057415
       attribute: 3305885265
       script: {fileID: 11500000, guid: 124aca3c15fa95d43bbc0c66dc9f7e3a, type: 3}
       typeID: 114
@@ -480,7 +510,16 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3445819042
+      path: 3071057415
+      attribute: 538195251
+      script: {fileID: 0}
+      typeID: 224
+      customType: 28
+      isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 2847193605
       attribute: 3305885265
       script: {fileID: 11500000, guid: 124aca3c15fa95d43bbc0c66dc9f7e3a, type: 3}
       typeID: 114
@@ -489,7 +528,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3445819042
+      path: 2847193605
       attribute: 538195251
       script: {fileID: 0}
       typeID: 224
@@ -498,11 +537,11 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1852608972
-      attribute: 538195251
+      path: 1419034570
+      attribute: 2086281974
       script: {fileID: 0}
-      typeID: 224
-      customType: 28
+      typeID: 1
+      customType: 0
       isPPtrCurve: 0
       isIntCurve: 0
       isSerializeReferenceCurve: 0
@@ -552,7 +591,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.6666667
-        value: 100
+        value: 25
         inSlope: 1.8951869
         outSlope: 0
         tangentMode: 1
@@ -561,13 +600,13 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.6666666
-        value: 100
+        value: 25
         inSlope: 0
-        outSlope: -493.79166
+        outSlope: 0.3181011
         tangentMode: 1
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.13018782
+        outWeight: 1
       - serializedVersion: 3
         time: 2.3333333
         value: 0
@@ -926,9 +965,39 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: BattleCanvas/Button
+    path: BattleCanvas/CatchButton
     classID: 114
     script: {fileID: 11500000, guid: 124aca3c15fa95d43bbc0c66dc9f7e3a, type: 3}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 5.5
+        value: -200
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 6.3333335
+        value: 50
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_AnchoredPosition.y
+    path: BattleCanvas/CatchButton
+    classID: 224
+    script: {fileID: 0}
     flags: 0
   - serializedVersion: 2
     curve:
@@ -956,7 +1025,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: BattleCanvas/Button_1
+    path: BattleCanvas/FleeButton
     classID: 114
     script: {fileID: 11500000, guid: 124aca3c15fa95d43bbc0c66dc9f7e3a, type: 3}
     flags: 0
@@ -986,7 +1055,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: BattleCanvas/Button_1
+    path: BattleCanvas/FleeButton
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -995,29 +1064,29 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 5.5
-        value: -200
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0
       - serializedVersion: 3
-        time: 6.3333335
-        value: 50
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        time: 1.6833333
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_AnchoredPosition.y
-    path: BattleCanvas/Button
-    classID: 224
+    attribute: m_IsActive
+    path: LDScene
+    classID: 1
     script: {fileID: 0}
     flags: 0
   m_EulerEditorCurves: []

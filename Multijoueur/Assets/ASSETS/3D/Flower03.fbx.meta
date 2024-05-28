@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Flower
+    second: {fileID: 2100000, guid: b87fb7672facd764499e8c42fd6826da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: FlowerTop
     second: {fileID: 2100000, guid: b87fb7672facd764499e8c42fd6826da, type: 2}
   materials:
