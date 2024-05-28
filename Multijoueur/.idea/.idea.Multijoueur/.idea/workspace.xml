@@ -6,33 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="337c81d9-d3dd-4934-b174-a2af84f2adc0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Multijoueur/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Multijoueur/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Materials/M_Dirt.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Materials/M_Dirt.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Materials/M_Leaves.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Materials/M_Leaves.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Pokemons/003.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Pokemons/003.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Pokemons/004.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Pokemons/004.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Pokemons/004.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Pokemons/004.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Pokemons/005.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Pokemons/005.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Pokemons/005.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Pokemons/005.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Pokemons/010.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Pokemons/010.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/3D/Prefabs/TableChairs.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/3D/Prefabs/TableChairs.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Materials/M_Rock.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Materials/M_Rock.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Prefab/P_Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Prefab/P_Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Prefab/PokemonManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Prefab/PokemonManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Prefab/Pokemon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Prefab/Pokemon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Scripts/BattleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Scripts/BattleManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Scripts/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Scripts/Pokemon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Scripts/Pokemon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Scripts/PokemonSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Scripts/PokemonSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Scripts/Pokemon_SO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Scripts/Pokemon_SO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Shaders/S_Leaves.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Shaders/S_Leaves.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Pokémons/004-Somnolaine.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Pokémons/004-Somnolaine.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Pokémons/005-Pipimento.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Pokémons/005-Pipimento.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Pokémons/006-CineKorn.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Pokémons/006-CineKorn.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Pokémons/010_Merlon.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Pokémons/010_Merlon.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/UI/Font/U_KGHAPPYSolid SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/UI/Font/U_KGHAPPYSolid SDF 1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Scripts/TriggerCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Scripts/TriggerCamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Scripts/ZOrderManaging.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Scripts/ZOrderManaging.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Shaders/S_SpotLight.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Shaders/S_SpotLight.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Shaders/S_Triplanar.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Shaders/S_Triplanar.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Character/Character.psd" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Character/Character.psd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Character/Character.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Character/Character.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/A_BattleIntro.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/A_BattleIntro.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CameraDistance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CameraDistance.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CameraRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CameraRotation.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TerrainWorld.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TerrainWorld.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Balanced-Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Balanced-Renderer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,12 +38,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/82a2fd073ee449928e161903460426d72ae00/77/b0371c5d/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/82a2fd073ee449928e161903460426d72ae00/b3/940b794b/Ease.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/82a2fd073ee449928e161903460426d72ae00/c3/2cc30312/EaseManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/CameraRotation.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/RefColors.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ShinyLight.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/TriggerCamera.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/WeightedPokemonVariationSelector.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ZOrderManaging.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@b9fe0d2048/Runtime/Core/NetworkObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@b9fe0d2048/Runtime/Messaging/Messages/RpcMessages.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@b9fe0d2048/Runtime/Messaging/NetworkMessageManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -89,15 +82,15 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\m.meziere\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\m.meziere\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\m.meziere\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\mathi\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\mathi\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\mathi\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Desktop/MultiBuild/Multijoueur.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/OneDrive/Bureau/ProjetMulti/Build/Multijoueur.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\m.meziere\Desktop\MultiBuild" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -178,6 +171,7 @@
       <workItem from="1716822148725" duration="1222000" />
       <workItem from="1716837289284" duration="1077000" />
       <workItem from="1716884447583" duration="1971000" />
+      <workItem from="1716916287511" duration="6785000" />
     </task>
     <servers />
   </component>

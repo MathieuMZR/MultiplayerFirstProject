@@ -6,6 +6,7 @@ using DG.Tweening;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class BattleManager : GenericSingletonClass<BattleManager>
@@ -14,7 +15,7 @@ public class BattleManager : GenericSingletonClass<BattleManager>
     [SerializeField] private Canvas canvas;
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject fadeFloatRef;
-    [SerializeField] private ParticleSystem[] shinyPs;
+    [SerializeField] private ParticleSystem[] particleSystems;
 
     [Header("PkmnInfos")] 
     [SerializeField]
@@ -82,8 +83,14 @@ public class BattleManager : GenericSingletonClass<BattleManager>
     {
         if (!lastPkmn.isShiny) return;
             
-        foreach(ParticleSystem ps in shinyPs) ps.Play();
+        particleSystems[0].Play();
+        particleSystems[1].Play();
         shinySparklesText.SetActive(true);
+    }
+    
+    public void SpawnGrassSparkles()
+    {
+        particleSystems[2].Play();
     }
 
     public void GenerateEncounterMessage(int ID)

@@ -16,24 +16,28 @@ public class CameraDistance : MonoBehaviour
 
     private float _timer;
 
-    public void AnimationForward(CinemachineVirtualCamera cam, float baseDistance)
+    private void Start()
+    {
+        PokemonManager.instance.OnLocalPlayerJoined += () =>
+        {
+            var framingTransposer = PokemonManager.instance.localPlayer.vc
+                .GetCinemachineComponent<CinemachineFramingTransposer>();
+            _baseDistance = framingTransposer.m_CameraDistance;
+        };
+    }
+
+    public void AnimationForward(CinemachineVirtualCamera cam)
     {
         if (!enabled) return;
 
-        var framingTransposer = cam.GetCinemachineComponent<CinemachineFramingTransposer>();
-        
-        if(Math.Abs(framingTransposer.m_CameraDistance - desiredCameraDistance) > 0.01f) _baseDistance = baseDistance;
         _timer.IncreaseTimerIfPositive(overallSpeed);
         AnimationLerp(cam);
     }
     
-    public void AnimationBackward(CinemachineVirtualCamera cam, float baseDistance)
+    public void AnimationBackward(CinemachineVirtualCamera cam)
     {
         if (!enabled) return;
         
-        var framingTransposer = cam.GetCinemachineComponent<CinemachineFramingTransposer>();
-        
-        if(Math.Abs(framingTransposer.m_CameraDistance - desiredCameraDistance) > 0.01f) _baseDistance = baseDistance;
         _timer.DecreaseTimerIfPositive(overallSpeed);
         AnimationLerp(cam);
     }
@@ -41,9 +45,8 @@ public class CameraDistance : MonoBehaviour
     private void AnimationLerp(CinemachineVirtualCamera cam)
     {
         var framingTransposer = cam.GetCinemachineComponent<CinemachineFramingTransposer>();
-        var distance = framingTransposer.m_CameraDistance;
-
-        distance = Mathf.Lerp(_baseDistance, desiredCameraDistance, overallCurve.Evaluate(_timer));
+        
+        var distance = Mathf.Lerp(_baseDistance, desiredCameraDistance, overallCurve.Evaluate(_timer));
         framingTransposer.m_CameraDistance = distance;
     }
 }

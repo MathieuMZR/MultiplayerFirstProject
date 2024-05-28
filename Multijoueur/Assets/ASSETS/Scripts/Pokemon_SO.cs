@@ -20,7 +20,7 @@ public class Pokemon_SO : ScriptableObject
     public PokemonSpeed pokemonSpeed;
 
     public enum PokemonRarity { Common, Uncommon, Rare, Epic, Legendary }
-    public enum PokemonType { Plante, Nourriture, Animal, Abstrait, Mythique }
+    public enum PokemonType { Plante, Nourriture, Animal }
     public enum PokemonSpeed { VerySlow, Slow, Normal, Fast, VeryFast }
 
     public float SpeedByEnum(PokemonSpeed ps)

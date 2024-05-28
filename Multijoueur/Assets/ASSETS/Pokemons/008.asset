@@ -24,13 +24,13 @@ MonoBehaviour:
     pokemonSpriteShinyVariation: {fileID: 2016477829, guid: bfec7694f5c39ce4a8212fe73a5cf917,
       type: 3}
     variationProbability: 0.2
-    pokemonVariationName: Potiron
+    pokemonVariationName: Soupe
   - pokemonSpriteVariation: {fileID: -479542743, guid: bfec7694f5c39ce4a8212fe73a5cf917,
       type: 3}
     pokemonSpriteShinyVariation: {fileID: 1835376740, guid: bfec7694f5c39ce4a8212fe73a5cf917,
       type: 3}
     variationProbability: 0.2
-    pokemonVariationName: "L\xE9gumes"
+    pokemonVariationName: "Th\xE9"
   canBeAltForm: 1
   pokemonName: "Caf\xE9e"
   pokemonID: 8

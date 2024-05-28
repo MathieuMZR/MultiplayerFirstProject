@@ -30,17 +30,21 @@ public class Pokemon : NetworkBehaviour
     [SerializeField] private SpriteRenderer pokemonSprite;
     [SerializeField] private ParticleSystem pokemonShinyParticle;
     [SerializeField] private ParticleSystem pokemonShinyParticlesSpawn;
+    
+    [SerializeField] private ParticleSystem[] pokemonParticlesSpawn;
 
     [Header("Components")]
     [SerializeField] private Transform spritePivot;
     [SerializeField] private Light pokemonLight;
     [SerializeField] private ShinyLight pokemonShinyLight;
+    [SerializeField] private AnimationCurve moveRotateCurve;
 
     private PokemonSounds pokemonSounds;
     private Animator animator;
 
     [Header("Constants")]
     private const float k_lightShiny = 80f;
+    private const float k_lifeTime = 30f;
 
     public override void OnNetworkSpawn()
     {
@@ -116,11 +120,12 @@ public class Pokemon : NetworkBehaviour
         transform.DOJump(transform.position, 0.5f, 1, 0.5f);
         
         if(isShiny.Value) pokemonShinyParticlesSpawn.Play();
+        pokemonParticlesSpawn[(int)pokemonScriptable.pokemonType].Play();
     }
 
     IEnumerator MoveRoutine()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(Random.Range(1.25f, 5.5f));
 
         var posToMove = spawnerParent.transform.position + new Vector3(
             Random.Range(-spawnerParent.behaviorRadius, spawnerParent.behaviorRadius) / 2f, 0, 
@@ -128,6 +133,8 @@ public class Pokemon : NetworkBehaviour
 
         var timeToMove = pokemonScriptable.SpeedByEnum(pokemonScriptable.pokemonSpeed) * Vector3.Distance(transform.position, posToMove);
         transform.DOMove(posToMove, timeToMove).SetEase(Ease.Linear);
+        transform.DORotate(new Vector3(0, 0, 3), timeToMove / 7f)
+            .SetEase(moveRotateCurve).SetLoops(7);
         
         if (IsHost) lastDirectionX.Value = (posToMove - transform.position).normalized.x;
 
@@ -153,7 +160,7 @@ public class Pokemon : NetworkBehaviour
 
     IEnumerator LifeTime()
     {
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(k_lifeTime);
         spawnerParent.DeSpawnPokemon(gameObject.GetComponent<NetworkObject>());
     }
 

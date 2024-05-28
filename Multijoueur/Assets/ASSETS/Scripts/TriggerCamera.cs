@@ -9,23 +9,17 @@ public class TriggerCamera : MonoBehaviour
 {
     [SerializeField] private CameraRotation cameraRotation;
     [SerializeField] private CameraDistance cameraDistance;
-    [SerializeField] private float desiredCameraDistance;
-    
+
     private bool _isInTrigger;
     
     private CinemachineVirtualCamera cam;
     private BoxCollider _box;
-    
-    private Vector3 _baseRotation;
-    private float _baseDistance;
 
     private void Start()
     {
         PokemonManager.instance.OnLocalPlayerJoined += () =>
         {
             cam = PokemonManager.instance.localPlayer.vc;
-            _baseRotation = cam.transform.rotation.eulerAngles;
-            _baseDistance = cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_CameraDistance;
         };
     }
 
@@ -34,6 +28,7 @@ public class TriggerCamera : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _isInTrigger = true;
+            PokemonManager.instance.localPlayer.isInCameraTrigger = true;
         }
     }
 
@@ -42,6 +37,7 @@ public class TriggerCamera : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _isInTrigger = false;
+            PokemonManager.instance.localPlayer.isInCameraTrigger = false;
         }
     }
 
@@ -49,15 +45,15 @@ public class TriggerCamera : MonoBehaviour
     {
         if (!cam) return;
 
-        if (_isInTrigger)
+        if (_isInTrigger && PokemonManager.instance.localPlayer.isInCameraTrigger)
         {
-            cameraRotation.AnimationForward(cam, _baseRotation);
-            cameraDistance.AnimationForward(cam, _baseDistance);
+            if(cameraRotation) cameraRotation.AnimationForward(cam);
+            if(cameraDistance) cameraDistance.AnimationForward(cam);
         }
-        else
+        else if(!_isInTrigger && !PokemonManager.instance.localPlayer.isInCameraTrigger)
         {
-            cameraRotation.AnimationBackward(cam, _baseRotation);
-            cameraDistance.AnimationBackward(cam, _baseDistance);
+            if(cameraRotation) cameraRotation.AnimationBackward(cam);
+            if(cameraDistance) cameraDistance.AnimationBackward(cam);
         }
     }
 

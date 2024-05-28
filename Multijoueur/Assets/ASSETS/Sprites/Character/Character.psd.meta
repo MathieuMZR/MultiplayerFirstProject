@@ -601,7 +601,7 @@ TextureImporter:
         width: 700
         height: 1028
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -609,6 +609,27 @@ TextureImporter:
       bones: []
       spriteID: e9bf5d2bf895cc7408727c4bdd5a38cb
       internalID: -1990866107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_24
+      rect:
+        serializedVersion: 2
+        x: 3671
+        y: 805
+        width: 1000
+        height: 1221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50fca9e2e7f44a045896d860e283e7ef
+      internalID: -2126912131
       vertices: []
       indices: 
       edges: []

@@ -19,7 +19,7 @@ public class ZOrderManaging : MonoBehaviour
     
     void Update()
     {
-        var pos = (int)transform.root.position.z + offset;
+        var pos = (int)transform.root.position.z + offset - 2000;
 
         if (srObj is null || srObj.sortingOrder == pos) return;
         srObj.sortingOrder = -pos;

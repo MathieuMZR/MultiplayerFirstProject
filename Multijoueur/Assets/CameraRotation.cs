@@ -14,21 +14,28 @@ public class CameraRotation : MonoBehaviour
     private Vector3 _baseRotation;
 
     private float _timer;
+    
+    private void Start()
+    {
+        PokemonManager.instance.OnLocalPlayerJoined += () =>
+        {
+            var rotation = PokemonManager.instance.localPlayer.listener.transform.eulerAngles;
+            _baseRotation = rotation;
+        };
+    }
 
-    public void AnimationForward(CinemachineVirtualCamera cam, Vector3 baseRotation)
+    public void AnimationForward(CinemachineVirtualCamera cam)
     {
         if (!enabled) return;
         
-        if(!_baseRotation.Equals(baseRotation)) _baseRotation = baseRotation;
         _timer.IncreaseTimerIfPositive(overallSpeed);
         AnimationLerp(cam);
     }
     
-    public void AnimationBackward(CinemachineVirtualCamera cam, Vector3 baseRotation)
+    public void AnimationBackward(CinemachineVirtualCamera cam)
     {
         if (!enabled) return;
         
-        if(!_baseRotation.Equals(baseRotation)) _baseRotation = baseRotation;
         _timer.DecreaseTimerIfPositive(overallSpeed);
         AnimationLerp(cam);
     }

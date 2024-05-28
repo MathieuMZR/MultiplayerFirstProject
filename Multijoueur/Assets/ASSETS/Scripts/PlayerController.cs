@@ -10,6 +10,7 @@ using UnityEngine.Serialization;
 public class PlayerController : NetworkBehaviour
 {
     public bool allowInputs;
+    public bool isInCameraTrigger;
     
     [SerializeField] private float groundDrag;
     [SerializeField] private LayerMask groundMask;
