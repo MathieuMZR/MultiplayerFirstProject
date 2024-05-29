@@ -133,8 +133,8 @@ public class Pokemon : NetworkBehaviour
 
         var timeToMove = pokemonScriptable.SpeedByEnum(pokemonScriptable.pokemonSpeed) * Vector3.Distance(transform.position, posToMove);
         transform.DOMove(posToMove, timeToMove).SetEase(Ease.Linear);
-        transform.DORotate(new Vector3(0, 0, 3), timeToMove / 7f)
-            .SetEase(moveRotateCurve).SetLoops(7);
+        transform.DORotate(new Vector3(0, 0, 3), timeToMove / Vector3.Distance(transform.position, posToMove))
+            .SetEase(moveRotateCurve).SetLoops((int)Vector3.Distance(transform.position, posToMove));
         
         if (IsHost) lastDirectionX.Value = (posToMove - transform.position).normalized.x;
 
@@ -169,21 +169,17 @@ public class Pokemon : NetworkBehaviour
         if (other.CompareTag("Player"))
         {
             var p = other.GetComponent<PlayerController>();
-            
+           
             if (!p.IsOwner) return;
             
             if (p == PokemonManager.instance.localPlayer)
             {
                 BattleManager.Instance.StartBattle(pkmnData, p);
                 p.EnableInputs(false);
-            
+
                 StopAllCoroutines();
 
                 StartCoroutine(nameof(DespawnDelay));
-            }
-            else
-            {
-                return;
             }
         }
     }

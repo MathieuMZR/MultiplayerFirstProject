@@ -30,7 +30,8 @@ public class PNJ : NetworkBehaviour
                 SpriteRotation();
                 
                 if (!other.GetComponent<PlayerController>().IsOwner) return;
-
+                if (!IsSpawned) return; 
+                    
                 DialogStarted_rpc(true);
                 
                 StartCoroutine(TextRoutine(other));
@@ -45,6 +46,7 @@ public class PNJ : NetworkBehaviour
             if (!other.GetComponent<PlayerController>().IsOwner) return;
 
             input.enabled = true;
+            
             input.transform.DOScale(Vector3.zero, 0f);
             input.transform.DOScale(Vector3.one / 1000f, 0.25f);
         }

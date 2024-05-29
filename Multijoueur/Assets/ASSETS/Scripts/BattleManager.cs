@@ -155,6 +155,6 @@ public class BattleManager : GenericSingletonClass<BattleManager>
         _animator.SetTrigger("EndBattle");
         MusicManager.Instance.GrassLandMusic();
 
-        lastPkmn.playerTriggerBattle.EnableInputs(true);
+        lastPkmn.playerTriggerBattle.EnableInputs(true, 2f);
     }
 }

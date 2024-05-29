@@ -952,6 +952,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowInputs: 1
+  walkHardCoded: 0
+  isInCameraTrigger: 0
   groundDrag: 25
   groundMask:
     serializedVersion: 2
@@ -961,6 +963,8 @@ MonoBehaviour:
   listener: {fileID: 2711526267461721286}
   spriteTransform: {fileID: 5233117855769780433}
   emoteWheel: {fileID: 542601786309491224}
+  direction: {x: 0, y: 0, z: 0}
+  lastDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &4171557908737388637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1633,7 +1637,7 @@ GameObject:
   - component: {fileID: 5233117855769780433}
   - component: {fileID: 6773458683742536630}
   - component: {fileID: 6471026433808390909}
-  - component: {fileID: 1169044056417168218}
+  - component: {fileID: 773520740124946922}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -1740,7 +1744,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1169044056417168218
+--- !u!114 &773520740124946922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

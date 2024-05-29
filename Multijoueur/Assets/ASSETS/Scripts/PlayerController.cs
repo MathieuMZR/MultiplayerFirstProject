@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using DG.Tweening;
@@ -56,8 +57,15 @@ public class PlayerController : NetworkBehaviour
         PokemonManager.instance.OnPlayerQuit(this);
     }
 
-    public void EnableInputs(bool enable)
+    public void EnableInputs(bool enable, float delay = 0f)
     {
+        StartCoroutine(InputRoutine(enable, delay));
+    }
+
+    IEnumerator InputRoutine(bool enable, float delay = 0f)
+    {
+        yield return new WaitForSeconds(delay);
+        
         allowInputs = enable;
         GetComponent<Collider>().enabled = enable;
     }
