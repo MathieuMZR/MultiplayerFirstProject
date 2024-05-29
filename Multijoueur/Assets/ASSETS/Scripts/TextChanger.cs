@@ -91,7 +91,6 @@ public class TextChanger : GenericSingletonClass<TextChanger>
     public void ModifyTextByPokémonType(ref TextMeshProUGUI t, string textToChange)
     {
         string s = textToChange;
-        Debug.Log(t);
         t.text = "";
         t.DOText(EnhancedTextFromPokemonType(s), 1f).SetEase(Ease.Linear);
     }

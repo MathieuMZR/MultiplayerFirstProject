@@ -169,13 +169,12 @@ public class Pokemon : NetworkBehaviour
         if (other.CompareTag("Player"))
         {
             var p = other.GetComponent<PlayerController>();
-
-            Debug.Log(p.IsOwner);
+            
             if (!p.IsOwner) return;
             
             if (p == PokemonManager.instance.localPlayer)
             {
-                BattleManager.Instance.StartBattle(pkmnData);
+                BattleManager.Instance.StartBattle(pkmnData, p);
                 p.EnableInputs(false);
             
                 StopAllCoroutines();
@@ -213,6 +212,8 @@ public class TransmitPokemonData
     public bool isAltForm;
 
     public PokemonVariation var;
+
+    public PlayerController playerTriggerBattle;
 
     public TransmitPokemonData(Pokemon_SO so, Sprite sprite, bool shiny, bool altForm, PokemonVariation var)
     {

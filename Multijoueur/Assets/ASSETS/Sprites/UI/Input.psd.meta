@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 2655d1fad78e2ca45b40ba7991910a62
+guid: 1d7b1b9419c81714bb6c573844dc1368
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,24 +37,24 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
+    wrapU: 0
+    wrapV: 0
     wrapW: 0
-  nPOTScale: 0
+  nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 0
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 0
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -108,106 +108,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: PNJs_0
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 1831
-        width: 347
-        height: 447
-      alignment: 9
-      pivot: {x: 0.592083, y: 0.018847438}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 74bb953de09a776488ad9113eb0e60e0
-      internalID: -2059240325
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PNJs_1
-      rect:
-        serializedVersion: 2
-        x: 739
-        y: 1831
-        width: 334
-        height: 428
-      alignment: 9
-      pivot: {x: 0.4741434, y: 0.023327978}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a568aed9750e76047b3dee85d54b6705
-      internalID: -1028497181
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PNJs_2
-      rect:
-        serializedVersion: 2
-        x: 91
-        y: 1225
-        width: 347
-        height: 447
-      alignment: 9
-      pivot: {x: 0.59358686, y: 0.01840449}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8d8fac0b7d10cbe4bb3fddf372f50172
-      internalID: -915249313
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PNJs_3
-      rect:
-        serializedVersion: 2
-        x: 744
-        y: 1231
-        width: 335
-        height: 428
-      alignment: 9
-      pivot: {x: 0.4735971, y: 0.02186228}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a093742581578094c965718678cb5b89
-      internalID: 2073165169
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7810ad622a89ee645a91a009b27ed0dd
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      PNJs_0: -2059240325
-      PNJs_1: -1028497181
-      PNJs_2: -915249313
-      PNJs_3: 2073165169
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

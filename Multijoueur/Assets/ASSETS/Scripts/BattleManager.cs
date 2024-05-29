@@ -8,6 +8,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class BattleManager : GenericSingletonClass<BattleManager>
 {
@@ -29,7 +30,7 @@ public class BattleManager : GenericSingletonClass<BattleManager>
     [SerializeField] private SpriteRenderer pkmnSprite;
     [SerializeField] private Image fade;
 
-    private TransmitPokemonData lastPkmn;
+    public TransmitPokemonData lastPkmn;
     
     public float FadeAmount {
         set => fade.material.SetFloat("_Size", value);
@@ -41,12 +42,21 @@ public class BattleManager : GenericSingletonClass<BattleManager>
         fade.material = mat;
     }
 
-    public void StartBattle(TransmitPokemonData encounterPkmn)
+    public void StartBattle(TransmitPokemonData encounterPkmn, PlayerController p)
     {
         lastPkmn = encounterPkmn;
+        lastPkmn.playerTriggerBattle = p;
         
-        Debug.Log("Battle Started");
-        
+        var pkDex = lastPkmn.playerTriggerBattle.GetComponent<Pokedex>().pokedexDatas;
+        foreach (PokedexData pxd in pkDex)
+        {
+            if (pxd.Pokemon == lastPkmn.pkmnSo)
+            {
+                pxd.Encounters++;
+                break;
+            }
+        }
+
         _animator.SetTrigger("StartBattle");
         MusicManager.Instance.BattleMusic();
         
@@ -108,9 +118,43 @@ public class BattleManager : GenericSingletonClass<BattleManager>
         FadeAmount = fadeFloatRef.transform.localPosition.x;
     }
 
-    
-    public void Test()
+    public void CatchPokemon()
     {
-        Debug.Log("Animation Event");
+        if (!lastPkmn.playerTriggerBattle.IsOwner) return;
+        
+        if (Random.value < lastPkmn.pkmnSo.CatchRateByEnum(lastPkmn.pkmnSo.pokemonRarity))
+        {
+            var pkDex = lastPkmn.playerTriggerBattle.GetComponent<Pokedex>().pokedexDatas;
+            foreach (PokedexData pxd in pkDex)
+            {
+                if (pxd.Pokemon == lastPkmn.pkmnSo)
+                {
+                    pxd.Catch += 1;
+                    
+                    _animator.SetTrigger("EndBattle");
+                    MusicManager.Instance.GrassLandMusic();
+
+                    lastPkmn.playerTriggerBattle.EnableInputs(true);
+                    
+                    particleSystems[0].Stop();
+                    particleSystems[1].Stop();
+                    
+                    return;
+                }
+            }
+        }
+    }
+
+    public void FleePokemon()
+    {
+        if (!lastPkmn.playerTriggerBattle.IsOwner) return;
+        
+        particleSystems[0].Stop();
+        particleSystems[1].Stop();
+        
+        _animator.SetTrigger("EndBattle");
+        MusicManager.Instance.GrassLandMusic();
+
+        lastPkmn.playerTriggerBattle.EnableInputs(true);
     }
 }

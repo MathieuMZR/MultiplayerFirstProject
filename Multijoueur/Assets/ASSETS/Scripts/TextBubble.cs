@@ -12,18 +12,23 @@ public class TextBubble : MonoBehaviour
 
     public void GenerateBubble(string text)
     {
-        transform.localScale = Vector3.zero;
-        transform.DOScale(Vector3.one, 0.35f);
+        Transform t = transform.GetChild(0);
+        t.localScale = Vector3.zero;
+        t.DOScale(Vector3.one, 0.35f);
 
-        var rect = GetComponent<RectTransform>();
+        var rect = t.GetComponent<RectTransform>();
         rect.anchoredPosition = new Vector2(0, -150);
         rect.DOAnchorPosY(50, 0.75f).SetEase(curveAnim);
+        
+        rect.DOAnchorPosY(-150, 0.75f).SetEase(curveAnim)
+            .SetDelay(TextChanger.Instance.RemoveRichText(text).Length / 16f);
+        t.DOScale(Vector3.one, 0.35f).SetDelay(TextChanger.Instance.RemoveRichText(text).Length / 16f);
         
         TextChanger.Instance.ModifyTextByPokémonType(ref tmp, text);
 
         StartCoroutine(GenerateTextSounds(text, 1f / (TextChanger.Instance.RemoveRichText(text).Length / 2f)));
         
-        KillTextBubble(TextChanger.Instance.RemoveRichText(text).Length / 10f);
+        KillTextBubble(TextChanger.Instance.RemoveRichText(text).Length / 15f);
     }
 
     private void KillTextBubble(float delay)

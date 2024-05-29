@@ -10,6 +10,7 @@ using UnityEngine.Serialization;
 public class PlayerController : NetworkBehaviour
 {
     public bool allowInputs;
+    public bool walkHardCoded;
     public bool isInCameraTrigger;
     
     [SerializeField] private float groundDrag;
@@ -27,8 +28,8 @@ public class PlayerController : NetworkBehaviour
     private PlayerEmotes _playerEmotes;
     private Animator _animator;
     
-    private Vector3 direction;
-    private Vector3 lastDirection;
+    public Vector3 direction;
+    public Vector3 lastDirection;
 
     private bool _isOnGround;
     
@@ -68,17 +69,16 @@ public class PlayerController : NetworkBehaviour
         
         AnimationManagement();
         
+        SpriteRotation();
+        
         if (!allowInputs)
         {
             if(_rb.velocity.magnitude > 0f) _rb.velocity = Vector3.zero;
-            if(Mathf.Abs(direction.magnitude) > 0f) direction = Vector3.zero;
+            if(Mathf.Abs(direction.magnitude) > 0f && !walkHardCoded) direction = Vector3.zero;
             return;
         }
         
-        SpriteRotation();
-        
         SetupDirection();
-
         EmoteManagement();
     }
     

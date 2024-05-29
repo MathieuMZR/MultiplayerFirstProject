@@ -48,6 +48,33 @@ public class Pokemon_SO : ScriptableObject
         }
         return f / 5f;
     }
+    
+    public float CatchRateByEnum(PokemonRarity pr)
+    {
+        var cr = 0f;
+        switch (pr)
+        {
+            case PokemonRarity.Common:
+                cr = 0.8f;
+                break;
+            case PokemonRarity.Uncommon:
+                cr = 0.65f;
+                break;
+            case PokemonRarity.Rare:
+                cr = 0.4f;
+                break;
+            case PokemonRarity.Epic:
+                cr = 0.2f;
+                break;
+            case PokemonRarity.Legendary:
+                cr = 0.075f;
+                break;
+            default:
+                cr = 0.75f;
+                break;
+        }
+        return cr;
+    }
 }
 
 [Serializable]

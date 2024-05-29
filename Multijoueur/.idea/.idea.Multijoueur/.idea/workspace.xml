@@ -82,15 +82,15 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\mathi\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\mathi\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\mathi\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\m.meziere\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\m.meziere\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\m.meziere\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/OneDrive/Bureau/ProjetMulti/Build/Multijoueur.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Desktop/MultiBuild/Multijoueur.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\m.meziere\Desktop\MultiBuild" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -172,6 +172,7 @@
       <workItem from="1716837289284" duration="1077000" />
       <workItem from="1716884447583" duration="1971000" />
       <workItem from="1716916287511" duration="6785000" />
+      <workItem from="1716979640466" duration="13726000" />
     </task>
     <servers />
   </component>

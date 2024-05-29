@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -30,7 +31,7 @@ public class PokemonSpawner : NetworkBehaviour
     
     IEnumerator SpawnLoop()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(Random.Range(1.5f, 4f));
         if (pokemonSpawnedCount.Value < maxPokemon)
         {
             SpawnPokemon();
@@ -65,9 +66,12 @@ public class PokemonSpawner : NetworkBehaviour
     public void DeSpawnPokemon(NetworkObject obj)
     {
         if (!IsOwner) return;
-        
-        pokemonSpawnedCount.Value--;
-        obj.Despawn();
+
+        obj.gameObject.transform.DOScale(Vector3.zero, 0.25f).OnComplete(() =>
+        {
+            pokemonSpawnedCount.Value--;
+            obj.Despawn();
+        });
     }
     
     
