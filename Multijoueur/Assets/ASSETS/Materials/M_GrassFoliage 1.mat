@@ -65,7 +65,7 @@ Material:
     - _BlendModePreserveSpecular: 0
     - _CastShadows: 0
     - _Cull: 0
-    - _Desaturate: 0
+    - _Desaturate: 0.106
     - _DstBlend: 10
     - _GradientSize: 1
     - _IntensityWind: 0.1
@@ -80,8 +80,8 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 1
     m_Colors:
-    - _BlendColor: {r: 0.5313176, g: 0.6981132, b: 0.503827, a: 1}
+    - _BlendColor: {r: 0.3882353, g: 0.5019608, b: 0.17254902, a: 1}
     - _BlendColor2: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.42430925, g: 0.7169812, b: 0.29423285, a: 1}
+    - _Color1: {r: 0.26480114, g: 0.4339623, b: 0.19037023, a: 1}
     - _Color2: {r: 0.20319302, g: 0.6603774, b: 0, a: 1}
   m_BuildTextureStacks: []
