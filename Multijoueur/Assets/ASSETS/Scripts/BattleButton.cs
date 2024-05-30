@@ -42,7 +42,7 @@ public class BattleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             basePosHint + new Vector2(0, offsetHintY), _timerOffsetY);
         hint.alpha = Mathf.Lerp(0, 1, _timerOffsetY);
 
-        if (isCatchButton && BattleManager.Instance.lastPkmn.playerTriggerBattle.IsOwner)
+        if (isCatchButton && PokemonManager.instance.connectedPlayers.Value > 0 && BattleManager.Instance.lastPkmn.playerTriggerBattle.IsOwner)
         {
             hint.text = "Chance de capture : " + (int)(BattleManager.Instance.lastPkmn.pkmnSo.CatchRateByEnum(
                 BattleManager.Instance.lastPkmn.pkmnSo.pokemonRarity) * 100f) + "%";

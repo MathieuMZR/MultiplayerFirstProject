@@ -20,22 +20,23 @@ public class PNJ : NetworkBehaviour
 
     private NetworkVariable<bool> dialogInitiated = 
         new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
-    
-    private void OnTriggerStay(Collider other)
+
+    private bool isInTrigger;
+    private PlayerController inTriggerPlayer;
+
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !dialogInitiated.Value)
+        if (Input.GetKeyDown(KeyCode.F) && !dialogInitiated.Value && isInTrigger && inTriggerPlayer != null)
         {
-            if (other.CompareTag("Player"))
-            {
-                SpriteRotation();
-                
-                if (!other.GetComponent<PlayerController>().IsOwner) return;
-                if (!IsSpawned) return; 
-                    
-                DialogStarted_rpc(true);
-                
-                StartCoroutine(TextRoutine(other));
-            }
+            if (!inTriggerPlayer.IsOwner) return;
+            
+            SpriteRotation();
+
+            if(inTriggerPlayer.IsServer) dialogInitiated.Value = true;
+            
+            StartCoroutine(TextRoutine(inTriggerPlayer));
+            
+            Debug.Log("Interact");
         }
     }
 
@@ -45,8 +46,11 @@ public class PNJ : NetworkBehaviour
         {
             if (!other.GetComponent<PlayerController>().IsOwner) return;
 
-            input.enabled = true;
+            isInTrigger = true;
+            inTriggerPlayer = other.GetComponent<PlayerController>();
             
+            input.enabled = true;
+
             input.transform.DOScale(Vector3.zero, 0f);
             input.transform.DOScale(Vector3.one / 1000f, 0.25f);
         }
@@ -57,7 +61,10 @@ public class PNJ : NetworkBehaviour
         if (other.CompareTag("Player"))
         {
             if (!other.GetComponent<PlayerController>().IsOwner) return;
-            
+
+            inTriggerPlayer = null;
+
+            isInTrigger = false;
             input.transform.DOScale(Vector3.zero, 0.25f).OnComplete(()=> input.enabled = false);
         }
     }
@@ -71,14 +78,14 @@ public class PNJ : NetworkBehaviour
                      Vector2.Distance(transform.position, c.transform.position)))
         {
             if (p != players[0]) continue;
-            var axis = p.transform.position.x > transform.position.x ? -1 : 1;
-            sprite.transform.DOScaleX(axis * (invertScale ? -1 : 1), 0.35f);
+            var axis = (transform.position - p.transform.position).normalized;
+            sprite.transform.DOScaleX((axis.x > 0 ? 1 : -1) * (sprite.flipX ? -1 : 1), 0.35f);
         }
     }
 
-    IEnumerator TextRoutine(Collider other)
+    IEnumerator TextRoutine(PlayerController other)
     {
-        var player = other.GetComponent<PlayerController>();
+        var player = other;
 
         cam.Priority = 1;
         player.vc.Priority = 0;
@@ -113,12 +120,8 @@ public class PNJ : NetworkBehaviour
 
         yield return new WaitForSeconds(2f);
         
-        DialogStarted_rpc(false);
-    }
-
-    [Rpc(SendTo.Server)]
-    void DialogStarted_rpc(bool value)
-    {
-        dialogInitiated.Value = value;
+        //input.transform.DOScale(Vector3.one / 1000f, 0.25f);
+        
+        if(player.IsServer) dialogInitiated.Value = false;
     }
 }

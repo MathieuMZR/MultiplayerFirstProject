@@ -6,25 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="337c81d9-d3dd-4934-b174-a2af84f2adc0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Multijoueur/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Multijoueur/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Prefab/AppearBubble.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Prefab/AppearBubble.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Materials/M_GrassFoliage.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Materials/M_GrassFoliage.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Prefab/PNJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Prefab/PNJ.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Prefab/P_Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Prefab/P_Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Prefab/Pokemon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Prefab/Pokemon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Prefab/PokemonManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Prefab/PokemonManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Scripts/BattleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Scripts/BattleManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Scripts/BattleButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Scripts/BattleButton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Scripts/Pokemon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Scripts/Pokemon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Pokémons/010-Cafée.psd" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Pokémons/010-Cafée.psd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Pokémons/011-CoinCoin.psd" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Pokémons/011-CoinCoin.psd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Pokémons/011-CoinCoin.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Sprites/Pokémons/011-CoinCoin.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/UI/Font/U_KGHAPPYSolid SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/UI/Font/U_KGHAPPYSolid SDF 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/A_BattleIntro.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/A_BattleIntro.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/A_EmptyBattle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/A_EmptyBattle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/A_EndBattle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/A_EndBattle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Mixer.mixer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Mixer.mixer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Shaders/S_Grass.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Shaders/S_Grass.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/Shaders/S_SimpleDoodle.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/Shaders/S_SimpleDoodle.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ASSETS/UI/Font/KGHAPPYSolid SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASSETS/UI/Font/KGHAPPYSolid SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PNJ.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PNJ.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TerrainWorld.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TerrainWorld.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +168,8 @@
       <workItem from="1716916287511" duration="6785000" />
       <workItem from="1716979640466" duration="13726000" />
       <workItem from="1717001994351" duration="4011000" />
+      <workItem from="1717091447947" duration="3055000" />
+      <workItem from="1717101965090" duration="1920000" />
     </task>
     <servers />
   </component>

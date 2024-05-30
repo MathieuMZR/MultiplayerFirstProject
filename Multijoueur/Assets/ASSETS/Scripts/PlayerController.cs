@@ -24,6 +24,8 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private Transform spriteTransform;
     
     [SerializeField] private EmoteWheel emoteWheel;
+    
+    public Animator zoneAnimator;
 
     private Rigidbody _rb;
     private PlayerEmotes _playerEmotes;
