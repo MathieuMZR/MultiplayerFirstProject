@@ -67,6 +67,7 @@ public class Pokemon : NetworkBehaviour
     private void InitiatePokemon()
     {
         pokemonScriptable = PokemonManager.instance.FindPokemonFromID(pokemonID.Value);
+        Debug.Log(pokemonScriptable.pokemonName);
         
         if (IsHost)
         {
@@ -120,7 +121,7 @@ public class Pokemon : NetworkBehaviour
         transform.DOJump(transform.position, 0.5f, 1, 0.5f);
         
         if(isShiny.Value) pokemonShinyParticlesSpawn.Play();
-        pokemonParticlesSpawn[(int)pokemonScriptable.pokemonType].Play();
+        pokemonParticlesSpawn[spawnerParent.indexVFXSpawn].Play();
     }
 
     IEnumerator MoveRoutine()

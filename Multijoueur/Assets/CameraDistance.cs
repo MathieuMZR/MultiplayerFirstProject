@@ -18,12 +18,7 @@ public class CameraDistance : MonoBehaviour
 
     private void Start()
     {
-        PokemonManager.instance.OnLocalPlayerJoined += () =>
-        {
-            var framingTransposer = PokemonManager.instance.localPlayer.vc
-                .GetCinemachineComponent<CinemachineFramingTransposer>();
-            _baseDistance = framingTransposer.m_CameraDistance;
-        };
+        
     }
 
     public void AnimationForward(CinemachineVirtualCamera cam)

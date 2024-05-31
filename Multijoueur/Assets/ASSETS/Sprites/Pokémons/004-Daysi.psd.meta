@@ -114,9 +114,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 134
-        y: 1560
+        y: 1559
         width: 265
-        height: 331
+        height: 332
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: 004-Daysi_1
       rect:
         serializedVersion: 2
-        x: 650
-        y: 1558
+        x: 664
+        y: 1557
         width: 265
-        height: 331
+        height: 332
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

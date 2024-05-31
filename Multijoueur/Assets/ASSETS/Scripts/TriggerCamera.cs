@@ -17,10 +17,7 @@ public class TriggerCamera : MonoBehaviour
 
     private void Start()
     {
-        PokemonManager.instance.OnLocalPlayerJoined += () =>
-        {
-            cam = PokemonManager.instance.localPlayer.vc;
-        };
+        
     }
 
     private void OnTriggerEnter(Collider other)

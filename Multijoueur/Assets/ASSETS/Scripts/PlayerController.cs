@@ -18,7 +18,6 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float walkSpeed;
     
-    public CinemachineVirtualCamera vc;
     public Camera listener;
     
     [SerializeField] private Transform spriteTransform;
@@ -42,6 +41,8 @@ public class PlayerController : NetworkBehaviour
         _rb = GetComponent<Rigidbody>();
         _playerEmotes = GetComponent<PlayerEmotes>();
         _animator = GetComponent<Animator>();
+
+        zoneAnimator = GameObject.FindGameObjectWithTag("ZoneCanvas").GetComponent<Animator>();
     }
 
     public override void OnNetworkSpawn()
@@ -110,12 +111,9 @@ public class PlayerController : NetworkBehaviour
     {
         if (IsOwner)
         {
-            listener.enabled = true;
-            vc.Priority = 1;
-        }
-        else
-        {
-            vc.Priority = 0;
+            listener = FindObjectOfType<Camera>();
+            CameraTarget.Instance.SwitchTransform(0);
+            CameraTarget.Instance.playerPosition = transform;
         }
     }
 

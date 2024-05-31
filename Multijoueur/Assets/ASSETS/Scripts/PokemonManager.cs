@@ -51,7 +51,7 @@ public class PokemonManager : NetworkBehaviour
 
     public Pokemon_SO FindPokemonFromID(int ID)
     {
-        Pokemon_SO pkmn = null;
+        Pokemon_SO pkmn = allPokemon[0];
         foreach (var p in allPokemon)
         {
             if (p.pokemonID == ID)

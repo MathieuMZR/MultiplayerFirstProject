@@ -15,7 +15,6 @@ public class PNJ : NetworkBehaviour
     [SerializeField] private Transform[] talkPoints;
     [SerializeField] private bool invertScale;
     
-    [SerializeField] private CinemachineVirtualCamera cam;
     [SerializeField] private Canvas input;
 
     private NetworkVariable<bool> dialogInitiated = 
@@ -86,9 +85,6 @@ public class PNJ : NetworkBehaviour
     IEnumerator TextRoutine(PlayerController other)
     {
         var player = other;
-
-        cam.Priority = 1;
-        player.vc.Priority = 0;
         
         input.transform.DOScale(Vector3.zero, 0.25f).OnComplete(()=> input.enabled = false);
         
@@ -99,7 +95,7 @@ public class PNJ : NetworkBehaviour
         
         player.direction = index == 0 ? -Vector3.right : Vector3.right;
         player.lastDirection = index == 0 ? -Vector3.right : Vector3.right;
-        cam.transform.DOLocalMoveX(talkPoints[index].localPosition.x / 2f, 0.75f);
+        //player.listener.transform.DOLocalMoveX(talkPoints[index].localPosition.x / 2f, 0.75f);
         
         player.transform.DOMove(talkPoints[index].position, 0.75f).SetEase(Ease.OutSine)
             .OnComplete(()=>
@@ -112,9 +108,6 @@ public class PNJ : NetworkBehaviour
         TextChanger.Instance.GenerateTextBubble(transform, text);
 
         yield return new WaitForSeconds(text.Length / 15f);
-        
-        cam.Priority = 0;
-        player.vc.Priority = 1;
         
         player.allowInputs = true;
 

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GlobalObjectIdHash: 2236730649
-  InScenePlacedSourceGlobalObjectIdHash: 0
+  InScenePlacedSourceGlobalObjectIdHash: 2236730649
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -81,5 +81,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b93908fd7db17dd4e83c8aafed354ae5, type: 2}
   - {fileID: 11400000, guid: 6cd72c1d7c893c34da0e9659b3bf114e, type: 2}
   - {fileID: 11400000, guid: 8c50a6d22d5cc384ebfc9127b88a18c7, type: 2}
+  - {fileID: 11400000, guid: 7b0680f74a629424c8ffd4451acfb382, type: 2}
+  - {fileID: 11400000, guid: 10f4a22db095a6746999fab88258f9e6, type: 2}
   localPlayer: {fileID: 0}
-  shinyRate: 0.05
+  shinyRate: 0.1

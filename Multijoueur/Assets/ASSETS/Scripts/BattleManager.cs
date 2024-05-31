@@ -56,11 +56,15 @@ public class BattleManager : GenericSingletonClass<BattleManager>
                 break;
             }
         }
+        
+        CameraTarget.Instance.SwitchTransform(1, 1f);
 
         _animator.SetTrigger("StartBattle");
         MusicManager.Instance.BattleMusic();
         
         InitAllVisuals();
+        
+        Canvas.ForceUpdateCanvases();
     }
 
     private void InitAllVisuals()
@@ -135,6 +139,7 @@ public class BattleManager : GenericSingletonClass<BattleManager>
                     MusicManager.Instance.GrassLandMusic();
 
                     lastPkmn.playerTriggerBattle.EnableInputs(true);
+                    CameraTarget.Instance.SwitchTransform(0, 1f);
                     
                     particleSystems[0].Stop();
                     particleSystems[1].Stop();
@@ -156,5 +161,6 @@ public class BattleManager : GenericSingletonClass<BattleManager>
         MusicManager.Instance.GrassLandMusic();
 
         lastPkmn.playerTriggerBattle.EnableInputs(true, 2f);
+        CameraTarget.Instance.SwitchTransform(0, 1f);
     }
 }

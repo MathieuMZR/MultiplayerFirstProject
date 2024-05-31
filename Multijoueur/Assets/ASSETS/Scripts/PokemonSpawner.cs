@@ -11,6 +11,8 @@ using Random = UnityEngine.Random;
 public class PokemonSpawner : NetworkBehaviour
 {
     [SerializeField] private WeightedPokemonSpawn[] possibleSpawns;
+    [SerializeField] private WeightedPokemonSpawn[] possibleSpawnsFromRain;
+    public int indexVFXSpawn;
     
     public float behaviorRadius;
     [SerializeField] private int maxPokemon;
@@ -59,7 +61,8 @@ public class PokemonSpawner : NetworkBehaviour
     int GetRandomPokemonID()
     {
         Pokemon_SO pkmn = null;
-        pkmn = WeightedPokemonSpawnSelector.GetRandomItem(possibleSpawns.ToList());
+        pkmn = WeightedPokemonSpawnSelector.GetRandomItem(
+            WeatherManager.Instance.isRaining ? possibleSpawnsFromRain.ToList() : possibleSpawns.ToList());
         return pkmn.pokemonID;
     }
 

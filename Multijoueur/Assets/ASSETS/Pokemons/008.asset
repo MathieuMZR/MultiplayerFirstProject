@@ -13,27 +13,27 @@ MonoBehaviour:
   m_Name: 008
   m_EditorClassIdentifier: 
   spriteVariations:
-  - pokemonSpriteVariation: {fileID: -2033317258, guid: bfec7694f5c39ce4a8212fe73a5cf917,
+  - pokemonSpriteVariation: {fileID: 2009561009, guid: bfec7694f5c39ce4a8212fe73a5cf917,
       type: 3}
-    pokemonSpriteShinyVariation: {fileID: -1721634708, guid: bfec7694f5c39ce4a8212fe73a5cf917,
+    pokemonSpriteShinyVariation: {fileID: 967750535, guid: bfec7694f5c39ce4a8212fe73a5cf917,
       type: 3}
     variationProbability: 0.8
     pokemonVariationName: 
-  - pokemonSpriteVariation: {fileID: 686099114, guid: bfec7694f5c39ce4a8212fe73a5cf917,
+  - pokemonSpriteVariation: {fileID: -78867731, guid: bfec7694f5c39ce4a8212fe73a5cf917,
       type: 3}
-    pokemonSpriteShinyVariation: {fileID: 2016477829, guid: bfec7694f5c39ce4a8212fe73a5cf917,
+    pokemonSpriteShinyVariation: {fileID: -1697579746, guid: bfec7694f5c39ce4a8212fe73a5cf917,
       type: 3}
     variationProbability: 0.2
     pokemonVariationName: Soupe
-  - pokemonSpriteVariation: {fileID: -479542743, guid: bfec7694f5c39ce4a8212fe73a5cf917,
+  - pokemonSpriteVariation: {fileID: 296432806, guid: bfec7694f5c39ce4a8212fe73a5cf917,
       type: 3}
-    pokemonSpriteShinyVariation: {fileID: 1835376740, guid: bfec7694f5c39ce4a8212fe73a5cf917,
+    pokemonSpriteShinyVariation: {fileID: 554343695, guid: bfec7694f5c39ce4a8212fe73a5cf917,
       type: 3}
     variationProbability: 0.2
     pokemonVariationName: "Th\xE9"
   canBeAltForm: 1
-  pokemonName: "Caf\xE9e"
+  pokemonName: "Mr. Caf\xE9"
   pokemonID: 8
   pokemonRarity: 2
   pokemonType: 1
-  pokemonSpeed: 4
+  pokemonSpeed: 2
