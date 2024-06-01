@@ -11,6 +11,7 @@ public class PokemonManager : NetworkBehaviour
     public NetworkVariable<int> connectedPlayers = new NetworkVariable<int>();
 
     public Pokemon_SO[] allPokemon;
+    public PokemonSpawner[] spawners;
     
     public PlayerController localPlayer;
     
@@ -32,10 +33,12 @@ public class PokemonManager : NetworkBehaviour
         if (p.IsHost)
         {
             connectedPlayers.Value++;
+            Debug.Log("Host Joined");
         }
         
         if (p.IsLocalPlayer)
         {
+            Debug.Log("LocalPlayer Joined");
             localPlayer = p;
             OnLocalPlayerJoined.Invoke();
         }

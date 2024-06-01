@@ -5,10 +5,11 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TitlScreenButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class TitlScreenButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField] float sizeMultiplier;
     [SerializeField] AnimationCurve curve;
+    [SerializeField] AnimationCurve curvePress;
     [SerializeField] float duration;
 
     private Vector3 baseScale;
@@ -26,5 +27,10 @@ public class TitlScreenButton : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public void OnPointerExit(PointerEventData eventData)
     {
         transform.DOScale(baseScale, duration).SetEase(curve);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        transform.DOScale(baseScale / sizeMultiplier, duration).SetEase(curvePress);
     }
 }

@@ -165,7 +165,7 @@ TextureImporter:
       004-Daysi_0: 611342699
       004-Daysi_1: 400412419
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

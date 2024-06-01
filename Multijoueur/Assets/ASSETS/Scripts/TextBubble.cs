@@ -20,15 +20,17 @@ public class TextBubble : MonoBehaviour
         rect.anchoredPosition = new Vector2(0, -150);
         rect.DOAnchorPosY(50, 0.75f).SetEase(curveAnim);
         
+        var delay = 0.5f;
+        
         rect.DOAnchorPosY(-150, 0.75f).SetEase(curveAnim)
-            .SetDelay(TextChanger.Instance.RemoveRichText(text).Length / 16f);
-        t.DOScale(Vector3.one, 0.35f).SetDelay(TextChanger.Instance.RemoveRichText(text).Length / 16f);
+            .SetDelay(TextChanger.Instance.RemoveRichText(text).Length / 16f + delay);
+        t.DOScale(Vector3.one, 0.35f).SetDelay(TextChanger.Instance.RemoveRichText(text).Length / 16f + delay);
         
         TextChanger.Instance.ModifyTextByPokémonType(ref tmp, text);
 
         StartCoroutine(GenerateTextSounds(text, 1f / (TextChanger.Instance.RemoveRichText(text).Length / 2f)));
         
-        KillTextBubble(TextChanger.Instance.RemoveRichText(text).Length / 15f);
+        KillTextBubble(TextChanger.Instance.RemoveRichText(text).Length / 15f + delay);
     }
 
     private void KillTextBubble(float delay)

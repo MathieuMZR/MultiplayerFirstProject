@@ -209,7 +209,7 @@ TextureImporter:
       009-Glassalo_2: -703816608
       009-Glassalo_3: -1928412223
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

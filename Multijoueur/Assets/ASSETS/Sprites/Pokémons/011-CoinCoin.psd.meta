@@ -209,7 +209,7 @@ TextureImporter:
       011-CoinCoin_2: -473934566
       011-CoinCoin_3: -1479377734
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

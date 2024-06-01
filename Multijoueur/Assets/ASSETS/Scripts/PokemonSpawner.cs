@@ -18,15 +18,27 @@ public class PokemonSpawner : NetworkBehaviour
     [SerializeField] private int maxPokemon;
 
     public NetworkVariable<int> pokemonSpawnedCount = new NetworkVariable<int>();
+    
+    public NetworkVariable<int> spawnerID = new NetworkVariable<int>();
 
     private IEnumerator Start()
     {
         //Spawning wait to at least one player to connect.
         yield return new WaitUntil(() => PokemonManager.instance.connectedPlayers.Value > 0);
-        
-        //Check if the spawner is owner, then spawn only on the server before replicate.
+
         if (!IsHost) yield break;
-        
+
+        int i = 0;
+        foreach (PokemonSpawner ps in PokemonManager.instance.spawners)
+        {
+            if (ps == this)
+            {
+                spawnerID.Value = i;
+                break;
+            }
+            i++;
+        }
+
         //Call RPC to replicate to server / clients.
         StartCoroutine(nameof(SpawnLoop));
     }
@@ -40,22 +52,27 @@ public class PokemonSpawner : NetworkBehaviour
         }
         StartCoroutine(nameof(SpawnLoop));
     }
+
     private void SpawnPokemon()
     {
         pokemonSpawnedCount.Value++;
         
         var posToSpawn = transform.position + new Vector3(Random.Range(-behaviorRadius, behaviorRadius) / 2f, 
             transform.position.y, Random.Range(-behaviorRadius, behaviorRadius) / 2f);
-        
+    
         var instance = Instantiate(PokemonManager.instance.pokemonPrefab.gameObject, 
             posToSpawn, Quaternion.identity);
-        
+    
         var instancePokemonScript = instance.GetComponent<Pokemon>();
         instancePokemonScript.pokemonID.Value = GetRandomPokemonID();
-        instancePokemonScript.spawnerParent = this;
+        instancePokemonScript.spawnerID.Value = spawnerID.Value;
         
+        Debug.LogError(instancePokemonScript.spawnerID.Value);
+
         var instanceNetworkObject = instance.GetComponent<NetworkObject>();
         instanceNetworkObject.Spawn();
+        
+        instancePokemonScript.InitiatePokemon();
     }
 
     int GetRandomPokemonID()

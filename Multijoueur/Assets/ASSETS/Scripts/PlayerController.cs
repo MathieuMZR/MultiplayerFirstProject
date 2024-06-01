@@ -51,6 +51,8 @@ public class PlayerController : NetworkBehaviour
         SetupSelfCamera();
 
         PokemonManager.instance.OnPlayerJoin(this);
+
+        transform.position = GameObject.FindGameObjectWithTag("SpawnPoint").transform.position;
     }
 
     public override void OnNetworkDespawn()
@@ -111,7 +113,7 @@ public class PlayerController : NetworkBehaviour
     {
         if (IsOwner)
         {
-            listener = FindObjectOfType<Camera>();
+            listener = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             CameraTarget.Instance.SwitchTransform(0);
             CameraTarget.Instance.playerPosition = transform;
         }

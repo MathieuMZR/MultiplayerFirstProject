@@ -165,7 +165,7 @@ TextureImporter:
       003-Nunuphare_0: 2119378195
       003-Nunuphare_1: 32226865
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

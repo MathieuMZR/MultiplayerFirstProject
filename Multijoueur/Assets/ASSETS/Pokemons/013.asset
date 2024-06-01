@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14db7237d58e2384ea444572b203318b, type: 3}
+  m_Name: 013
+  m_EditorClassIdentifier: 
+  spriteVariations:
+  - pokemonSpriteVariation: {fileID: 2130542694, guid: 65c5c006bf5ed03459bd0491afa97e04,
+      type: 3}
+    pokemonSpriteShinyVariation: {fileID: -513737386, guid: 65c5c006bf5ed03459bd0491afa97e04,
+      type: 3}
+    variationProbability: 0.5
+    pokemonVariationName: 
+  - pokemonSpriteVariation: {fileID: -539387131, guid: 65c5c006bf5ed03459bd0491afa97e04,
+      type: 3}
+    pokemonSpriteShinyVariation: {fileID: 733834959, guid: 65c5c006bf5ed03459bd0491afa97e04,
+      type: 3}
+    variationProbability: 0.5
+    pokemonVariationName: Chic
+  canBeAltForm: 1
+  pokemonName: Parapasol
+  pokemonID: 13
+  pokemonRarity: 3
+  pokemonType: 3
+  pokemonSpeed: 1

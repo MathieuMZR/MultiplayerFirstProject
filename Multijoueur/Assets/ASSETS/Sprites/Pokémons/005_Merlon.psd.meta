@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 010_Merlon_0
+      name: 005_Merlon_0
       rect:
         serializedVersion: 2
         x: 73
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc90d7c06b45d1e4096ec9ef92e01857
-      internalID: 845559779
+      spriteID: 90c69522fc4ae1d458a2ffd545e58661
+      internalID: 1159233247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 010_Merlon_1
+      name: 005_Merlon_1
       rect:
         serializedVersion: 2
         x: 587
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1059b3fe1330534194e35291b290fe5
-      internalID: -339208035
+      spriteID: c93e58454e7bd1b47b88252238adf824
+      internalID: 1793060432
       vertices: []
       indices: 
       edges: []
@@ -162,10 +162,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      010_Merlon_0: 845559779
-      010_Merlon_1: -339208035
+      005_Merlon_0: 1159233247
+      005_Merlon_1: 1793060432
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

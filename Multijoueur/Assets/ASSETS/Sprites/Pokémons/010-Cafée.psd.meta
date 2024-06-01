@@ -253,7 +253,7 @@ TextureImporter:
       "010-Caf\xE9e_4": 296432806
       "010-Caf\xE9e_5": 554343695
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

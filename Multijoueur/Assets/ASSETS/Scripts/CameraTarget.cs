@@ -15,7 +15,15 @@ public class CameraTarget : GenericSingletonClass<CameraTarget>
     [SerializeField] private float smoothAmount = 15f;
 
     private int indexCam;
-    
+
+    private void Start()
+    {
+        PokemonManager.instance.OnLocalPlayerJoined += () =>
+        {
+            GetComponent<Animator>().enabled = false;
+        };
+    }
+
     private void Update()
     {
         UpdatePosition();

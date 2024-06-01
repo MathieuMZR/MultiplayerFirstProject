@@ -47,7 +47,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0
-    - _Darker: 0.7
+    - _Darker: 0.75
     - _DecalAngleFadeSupported: 1
     - _DecalMeshBiasType: 0
     - _DecalMeshDepthBias: 0

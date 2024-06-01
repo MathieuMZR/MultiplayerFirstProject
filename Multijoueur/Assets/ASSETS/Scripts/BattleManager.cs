@@ -136,7 +136,7 @@ public class BattleManager : GenericSingletonClass<BattleManager>
                     pxd.Catch += 1;
                     
                     _animator.SetTrigger("EndBattle");
-                    MusicManager.Instance.GrassLandMusic();
+                    MusicManager.Instance.GrassLandMusic(false);
 
                     lastPkmn.playerTriggerBattle.EnableInputs(true);
                     CameraTarget.Instance.SwitchTransform(0, 1f);
@@ -158,7 +158,7 @@ public class BattleManager : GenericSingletonClass<BattleManager>
         particleSystems[1].Stop();
         
         _animator.SetTrigger("EndBattle");
-        MusicManager.Instance.GrassLandMusic();
+        MusicManager.Instance.GrassLandMusic(false);
 
         lastPkmn.playerTriggerBattle.EnableInputs(true, 2f);
         CameraTarget.Instance.SwitchTransform(0, 1f);

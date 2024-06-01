@@ -165,7 +165,7 @@ TextureImporter:
       Plot_0: 427793466
       Plot_1: -1779414715
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

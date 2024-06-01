@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 60b1ce2dba0d7644f953f26ea09119f0
+guid: 65c5c006bf5ed03459bd0491afa97e04
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Popintur_0
+      name: 015-Parapasol_0
       rect:
         serializedVersion: 2
-        x: 144
-        y: 1564
-        width: 230
-        height: 290
+        x: 146
+        y: 1567
+        width: 229
+        height: 252
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2423fc123930c614c98c98eaf60ac40d
-      internalID: 1799024122
+      spriteID: a2034b3e84f9b33428d221416064d2b5
+      internalID: 2130542694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Popintur_1
+      name: 015-Parapasol_1
       rect:
         serializedVersion: 2
-        x: 651
-        y: 1563
-        width: 230
-        height: 290
+        x: 643
+        y: 1557
+        width: 229
+        height: 252
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75578e1f45c73fe4689873917fc05e05
-      internalID: -115133882
+      spriteID: c0489b115873b514ebc25c1d9ec3bc64
+      internalID: -513737386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 015-Parapasol_2
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 1043
+        width: 229
+        height: 252
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9bd29acfb986b547b4e37dcf2dc34e4
+      internalID: -539387131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 015-Parapasol_3
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 1039
+        width: 229
+        height: 252
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a34abec10bb14104ab3b4c68fa869523
+      internalID: 733834959
       vertices: []
       indices: 
       edges: []
@@ -154,7 +196,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: befcb3c053c27cb4eab0853081d503cc
+    spriteID: 6eb5986b29d71e040b832efb6c23fd1b
     internalID: 0
     vertices: []
     indices: 
@@ -162,10 +204,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Popintur_0: 1799024122
-      Popintur_1: -115133882
+      015-Parapasol_0: 2130542694
+      015-Parapasol_1: -513737386
+      015-Parapasol_2: -539387131
+      015-Parapasol_3: 733834959
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

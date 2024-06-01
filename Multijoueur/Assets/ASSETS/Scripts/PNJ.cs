@@ -7,15 +7,16 @@ using DG.Tweening;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class PNJ : NetworkBehaviour
 {
     [SerializeField] private string text;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private Transform[] talkPoints;
-    [SerializeField] private bool invertScale;
-    
-    [SerializeField] private Canvas input;
+
+    [SerializeField] private Canvas canvasInput;
+    [SerializeField] private Image inputSprite;
 
     private NetworkVariable<bool> dialogInitiated = 
         new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
@@ -34,8 +35,6 @@ public class PNJ : NetworkBehaviour
             if(inTriggerPlayer.IsServer) dialogInitiated.Value = true;
             
             StartCoroutine(TextRoutine(inTriggerPlayer));
-            
-            Debug.Log("Interact");
         }
     }
 
@@ -48,10 +47,10 @@ public class PNJ : NetworkBehaviour
             isInTrigger = true;
             inTriggerPlayer = other.GetComponent<PlayerController>();
             
-            input.enabled = true;
+            inputSprite.enabled = true;
 
-            input.transform.DOScale(Vector3.zero, 0f);
-            input.transform.DOScale(Vector3.one / 1000f, 0.25f);
+            inputSprite.transform.DOScale(Vector3.zero, 0f);
+            inputSprite.transform.DOScale(Vector3.one, 0.25f);
         }
     }
     
@@ -64,7 +63,7 @@ public class PNJ : NetworkBehaviour
             inTriggerPlayer = null;
 
             isInTrigger = false;
-            input.transform.DOScale(Vector3.zero, 0.25f).OnComplete(()=> input.enabled = false);
+            inputSprite.transform.DOScale(Vector3.zero, 0.25f).OnComplete(()=> inputSprite.enabled = false);
         }
     }
 
@@ -86,7 +85,7 @@ public class PNJ : NetworkBehaviour
     {
         var player = other;
         
-        input.transform.DOScale(Vector3.zero, 0.25f).OnComplete(()=> input.enabled = false);
+        inputSprite.transform.DOScale(Vector3.zero, 0.25f).OnComplete(()=> inputSprite.enabled = false);
         
         player.allowInputs = false;
         player.walkHardCoded = true;
@@ -105,7 +104,7 @@ public class PNJ : NetworkBehaviour
 
         yield return new WaitForSeconds(0.75f);
             
-        TextChanger.Instance.GenerateTextBubble(transform, text);
+        TextChanger.Instance.GenerateTextBubble(HUD.Instance.transform, text);
 
         yield return new WaitForSeconds(text.Length / 15f);
         

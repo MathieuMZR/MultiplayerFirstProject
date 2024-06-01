@@ -148,7 +148,6 @@ MonoBehaviour:
   - {fileID: 2693280485213595144}
   - {fileID: 2548233421401783173}
   - {fileID: 8395680063143350007}
-  - {fileID: -1140583896714901541}
 --- !u!114 &849379129802519247
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -201,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   mode:
     m_OverrideState: 1
     m_Value: 1

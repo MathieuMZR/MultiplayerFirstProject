@@ -209,7 +209,7 @@ TextureImporter:
       002-PopKorn_2: -1410442671
       002-PopKorn_3: 2136867335
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

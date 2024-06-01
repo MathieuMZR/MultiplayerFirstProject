@@ -10,6 +10,7 @@ public class WeatherManager : GenericSingletonClass<WeatherManager>
     [SerializeField] private DecalProjector droplets;
     [SerializeField] private Vector2 minMaxTime;
     [SerializeField] private float rainChance;
+    [SerializeField] private GameObject rainBattle;
 
     public bool isRaining;
     
@@ -27,11 +28,13 @@ public class WeatherManager : GenericSingletonClass<WeatherManager>
         {
             Rain_rpc();
             isRaining = true;
+            rainBattle.SetActive(true);
         }
         else
         {
             StopRain_rpc();
             isRaining = false;
+            rainBattle.SetActive(false);
         }
         
         StartCoroutine(WeatherRoutine());

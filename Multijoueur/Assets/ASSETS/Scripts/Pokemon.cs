@@ -18,8 +18,10 @@ public class Pokemon : NetworkBehaviour
 
     public NetworkVariable<bool> isShiny;
     public NetworkVariable<bool> isAltForm;
-    
+
     public NetworkVariable<bool> isMoving;
+    
+    public NetworkVariable<int> spawnerID;
 
     private NetworkVariable<float> lastDirectionX = new NetworkVariable<float>(1f);
 
@@ -46,11 +48,20 @@ public class Pokemon : NetworkBehaviour
     private const float k_lightShiny = 80f;
     private const float k_lifeTime = 30f;
 
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        pokemonSounds = GetComponent<PokemonSounds>();
+
+        PokemonManager.instance.OnLocalPlayerJoined += () =>
+        {
+            InitiatePokemon();
+        };
+    }
+
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
-        
-        InitiatePokemon();
 
         if (!IsOwner) return;
 
@@ -64,13 +75,12 @@ public class Pokemon : NetworkBehaviour
         SetAnimatorWalkPropriety();
     }
 
-    private void InitiatePokemon()
+    public void InitiatePokemon()
     {
-        pokemonScriptable = PokemonManager.instance.FindPokemonFromID(pokemonID.Value);
-        Debug.Log(pokemonScriptable.pokemonName);
-        
         if (IsHost)
         {
+            pokemonScriptable = PokemonManager.instance.FindPokemonFromID(pokemonID.Value);
+
             isShiny.Value = Random.value < PokemonManager.instance.shinyRate;
 
             if (pokemonScriptable.canBeAltForm)
@@ -78,22 +88,34 @@ public class Pokemon : NetworkBehaviour
                 pokemonVariationID.Value =
                     pokemonScriptable.spriteVariations.IndexOf(
                         WeightedPokemonVariationSelector.GetRandomItem(pokemonScriptable.spriteVariations));
-                
-                isAltForm.Value = Random.value < pokemonScriptable.spriteVariations[pokemonVariationID.Value].variationProbability;
+
+                isAltForm.Value = Random.value <
+                                  pokemonScriptable.spriteVariations[pokemonVariationID.Value].variationProbability;
             }
+            
+            spawnerParent = PokemonManager.instance.spawners[spawnerID.Value];
         }
 
-        SpawnAnimation();
+        InitiatePokemon_Rpc(pokemonID.Value,  pokemonVariationID.Value, spawnerID.Value, isShiny.Value, isAltForm.Value);
+    }
+
+    [Rpc(SendTo.Everyone)]
+    private void InitiatePokemon_Rpc(int ID, int variationID, int spawnerID, bool isShiny, bool isAltForm)
+    {
+        pokemonScriptable = PokemonManager.instance.FindPokemonFromID(ID);
         
-        animator = GetComponent<Animator>();
-        pokemonSounds = GetComponent<PokemonSounds>();
+        if (!IsHost)
+        {
+            spawnerParent = PokemonManager.instance.spawners[spawnerID];
+            Debug.Log(pokemonScriptable + " " + ID);
+        }
+        
+        pokemonSprite.sprite = pokemonScriptable.spriteVariations[variationID].pokemonSpriteVariation;
 
-        pokemonSprite.sprite = pokemonScriptable.spriteVariations[pokemonVariationID.Value].pokemonSpriteVariation;
-
-        if (isShiny.Value)
+        if (isShiny)
         {
             pokemonSprite.sprite =
-                pokemonScriptable.spriteVariations[pokemonVariationID.Value].pokemonSpriteShinyVariation;
+                pokemonScriptable.spriteVariations[variationID].pokemonSpriteShinyVariation;
             
             pokemonShinyParticle.gameObject.SetActive(true);
             pokemonLight.intensity = k_lightShiny;
@@ -107,10 +129,12 @@ public class Pokemon : NetworkBehaviour
             pokemonLight.enabled = false;
         }
         
-        pokemonSounds.AppearSound(isShiny.Value);
+        pokemonSounds.AppearSound(isShiny);
 
-        pkmnData = new TransmitPokemonData(pokemonScriptable, pokemonSprite.sprite, isShiny.Value, isAltForm.Value, 
+        pkmnData = new TransmitPokemonData(pokemonScriptable, pokemonSprite.sprite, isShiny, isAltForm, 
             pokemonScriptable.spriteVariations[pokemonVariationID.Value]); 
+        
+        SpawnAnimation();
     }
 
     void SpawnAnimation()
@@ -121,6 +145,9 @@ public class Pokemon : NetworkBehaviour
         transform.DOJump(transform.position, 0.5f, 1, 0.5f);
         
         if(isShiny.Value) pokemonShinyParticlesSpawn.Play();
+        
+        Debug.Log(spawnerParent);
+        
         pokemonParticlesSpawn[spawnerParent.indexVFXSpawn].Play();
     }
 
