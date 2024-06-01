@@ -61831,7 +61831,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "UN JEU PAR \nMATHIEU MEZIERE"
+  m_text: "<size=25><alpha=#10>UN JEU PAR</size><alpha=#FF>\nMATHIEU MEZIERE\n3E
+    ANN\xC9E GP"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ef50e10cb5fc4ca4b93a7d85051419b1, type: 2}
   m_sharedMaterial: {fileID: -5974083923249508957, guid: ef50e10cb5fc4ca4b93a7d85051419b1,
@@ -61871,7 +61872,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: -50
+  m_lineSpacing: -25
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
